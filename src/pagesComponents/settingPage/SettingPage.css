@@ -1,0 +1,22 @@
+#setting-page{
+    display: flex;
+    flex-direction: row;
+}
+
+#setting-page-wrapper{
+    margin: 20px;
+    width: 100%;
+}
+
+#setting-page-form{
+    width: 90%;
+    padding: 20px;
+    background: #f7f7f7;
+    border-radius: 10px;
+}
+
+@media screen and ( max-width: 900px ) {
+    #component-left-menu{
+        display: none;
+    }
+}

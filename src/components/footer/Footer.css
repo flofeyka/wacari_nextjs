@@ -1,0 +1,29 @@
+#footer-component{
+    background: #000;
+    color: white;
+    padding: 0 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#footer-logo{
+    cursor: pointer;
+}
+
+#footer-component > img {
+    width: 100px;
+}
+
+.footer-menu-item{
+    cursor: pointer;
+    margin-right: 20px;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.footer-menu-item:hover{
+    transition: 0.4s;
+    border-bottom: solid #ffffff 1px;
+}

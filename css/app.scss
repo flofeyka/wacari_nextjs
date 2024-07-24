@@ -1,0 +1,73 @@
+@function _size($n) {
+    $sum: calc($n / 16);
+
+    @return $sum * 1rem;
+}
+
+@function _media($n) {
+    $sum: calc($n / 16);
+
+    @return $sum * 1em;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans+Elymaic&display=swap');
+
+*,
+html {
+    font-size: 100%;
+}
+
+:root {
+    --color-silver: #BCBCBC;
+    --color-link: #007bff;
+    --color-blue: #2F5A9B;
+    --inter: "Inter", sans-serif;
+    --montserrat: "Montserrat", sans-serif;
+}
+
+body {
+    font-size: _size(16);
+    font-family: var(--inter) !important;
+    font-size: _size(16);
+    color: rgb(0, 0, 0);
+    background-color: #fff;
+    line-height: 1.5;
+}
+
+button {
+    outline: none;
+    border: 0;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+
+.aside-right {
+    width: 82%;
+    position: relative;
+    padding-right: _size(30);
+    padding-left: _size(20);
+}
+
+.wrapper {
+    display: flex;
+}
+
+.button-auth {
+    font-weight: 400;
+    font-size: _size(20);
+    &::focus {
+        color: var(--color-link)
+    }
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+    padding: 0;
+}

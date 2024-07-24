@@ -1,0 +1,44 @@
+#biography-create-page{
+    display: flex;
+    flex-direction: row;
+}
+
+#biography-create-page-wrapper{
+    margin: 20px;
+    width: 100%;
+}
+
+#biography-create-content{
+    color: #00000073;
+    text-align: center;
+    /*background: #f7f7f7;*/
+    border-radius: 10px;
+    border: 1px dashed #aeaeae;
+    margin-top: 20px;
+}
+
+#birthday-date{
+    display: flex;
+    width: 100%;
+}
+
+#death-date{
+    display: flex;
+    width: 100%;
+}
+
+.delete-element-button{
+    margin-left: 10px;
+    color: blue;
+    cursor: pointer;
+}
+
+.delete-element-button:hover{
+    text-decoration: underline
+}
+
+@media screen and ( max-width: 900px ) {
+    #component-left-menu{
+        display: none;
+    }
+}

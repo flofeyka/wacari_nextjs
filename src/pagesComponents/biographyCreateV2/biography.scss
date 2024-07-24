@@ -1,0 +1,383 @@
+@function _size($n) {
+  $sum: calc($n / 16);
+
+  @return $sum * 1rem;
+}
+
+@function _media($n) {
+  $sum: calc($n / 16);
+
+  @return $sum * 1em;
+}
+
+.biography {
+  //padding-bottom: _size(80);
+  min-height: 80vh;
+  display: flex;
+  flex-direction: row;
+
+  &_component-left-menu {
+
+  }
+
+  &_content_wrapper{
+    margin: 20px;
+    width: 100%;
+  }
+
+  &_instruction-page-wrapper {
+    margin: 20px;
+    font-size: 30px;
+    color: #2f5a9b;
+  }
+
+  &__block {
+    ul {
+      display: flex;
+      flex-direction: column;
+      padding-inline-start: 0;
+      gap: _size(10);
+
+      li {
+        display: flex;
+        gap: _size(20);
+      }
+    }
+  }
+
+  &__block_input{
+    display: flex;
+    flex-direction: row;
+    gap: _size(20);
+  }
+
+  &__name {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    //padding: _size(12) _size(17) _size(12) _size(20);
+    border: 1px solid rgb(231, 231, 231);
+    max-width: _size(321);
+    width: 100%;
+    //background-color: rgba(188, 188, 188);
+    background-color: #e5e5e5;
+
+    &_text{
+      display: flex;
+      align-items: center;
+      gap: _size(20);
+      font-weight: 500;
+      font-size: 19px !important;
+    }
+    div {
+      display: flex;
+      gap: _size(10);
+      align-items: center;
+    }
+
+    p {
+      display: flex;
+      align-items: center;
+      gap: _size(20);
+      font-weight: 500;
+      //font-size: _size(20);
+      font-size: 20px;
+      margin: 0;
+
+      span {
+        color: red;
+      }
+
+      div {
+        background-color: #fff;
+      }
+    }
+
+    button {
+      border: none !important;
+    }
+  }
+
+  &__input_new {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: _size(10);
+
+    div {
+      width: 100%;
+    }
+  }
+
+  &__input {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: _size(20);
+
+      &_wrap {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: _size(20);
+      }
+
+    div {
+      width: 100%;
+    }
+
+    &-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: _size(20);
+
+
+      .MuiFormControl-root {
+        max-width: _size(250);
+      }
+    }
+  }
+
+  &_wrap {
+    padding-top: _size(111);
+    padding-bottom: _size(80);
+
+    &_button-step {
+      display: block;
+      font-weight: 400;
+      //font-size: _size(16);
+      font-size: 20px;
+      background-color: rgb(38, 138, 187);
+      border: 1px solid rgb(188, 188, 188);
+      color: #fff;
+      padding: _size(20) _size(90);
+      transition: all 0.4s ease;
+      margin: 0 auto;
+      margin-top: _size(60);
+      cursor: pointer;
+
+      &:hover {
+        background-color: #0069d9;
+        border-color: #0062cc;
+      }
+    }
+  }
+
+  &_position {
+    margin: 0 auto;
+    max-width: _size(1200);
+
+    &__line {
+      max-width: _size(1200);
+      height: _size(10);
+      border-radius: 10px;
+      background-color: rgb(188, 188, 188);
+      overflow: hidden;
+
+      span {
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(38, 138, 187);
+        transition: width 0.5s;
+      }
+    }
+
+    &__step {
+      margin-top: _size(20);
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+
+      button {
+        font-weight: 600;
+        //font-size: _size(30);
+        font-size: 30px;
+        color: rgb(1, 1, 1);
+        background: #ffffff00;
+        border: none;
+        cursor: pointer;
+      }
+
+      .active {
+        color: rgb(47, 90, 155);
+      }
+    }
+  }
+
+  &__img-wrap {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+
+  }
+
+  &__img-info {
+    text-align: center;
+    background: #f3f3f3;
+    margin-bottom: 70px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #BCBCBC;
+
+    h3 {
+      //font-size: _size(30);
+      font-size: 28px;
+      font-weight: 500;
+      margin-bottom: _size(15);
+    }
+
+    p {
+      margin: 0 auto;
+      max-width: _size(400);
+      color: #2F5A9B;
+      line-height: 1.1;
+      //font-size: _size(20);
+      margin-bottom: _size(15);
+    }
+  }
+}
+
+.css-1ald77x{
+  background: white;
+}
+
+.MuiAccordionSummary-content {
+  font-weight: 900;
+  //font-size: _size(30);
+  font-size: 30px;
+  justify-content: center;
+  color: rgb(47, 90, 155);
+  margin: 0;
+  padding: _size(20) 0;
+}
+
+.MuiButtonBase-root {
+  //ToDo выпадающий список в форме
+  border: 1px solid rgb(188, 188, 188) !important;
+}
+.css-1jy569b-MuiFormLabel-root-MuiInputLabel-root{
+  background: white;
+}
+
+.date {
+  //max-width: _size(300);
+  display: flex;
+  align-items: center;
+  gap: _size(20);
+}
+
+#date-id{
+  width: 32%;
+}
+
+#education-date-id{
+  width: 40%;
+}
+
+.date .MuiInputAdornment-root {
+  width: auto;
+}
+
+.image-container {
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+  overflow: hidden;
+}
+
+@media screen and ( max-width: 1300px ){
+  .biography {
+    flex-direction: column;
+  }
+  .biography_component-left-menu{
+    width: 100%;
+    min-height: auto;
+  }
+  #left-menu-component{
+    height: auto !important;
+    min-height: auto !important;
+    width: 100% !important;
+  }
+}
+
+@media screen and ( max-width: 900px ) {
+  .biography {
+    flex-direction: column;
+
+    &_content_wrapper{
+      margin: 0;
+    }
+
+    &__block {
+      &_input {
+        flex-direction: column;
+      }
+      ul {
+        li {
+          display: flex;
+          flex-direction: column;
+          //gap: 0;
+        }
+      }
+    }
+
+    &__name {
+      max-width: 100%;
+      width: auto;
+      margin-top: 15px;
+      padding: _size(12) _size(17) _size(12) _size(20);
+    }
+
+    &__input {
+      flex-direction: column;
+      &_wrap {
+        flex-direction: column;
+      }
+    }
+    &__input_new {
+      gap: _size(20);
+    }
+  }
+
+  .imaginary-block{
+    display: none;
+  }
+  #imaginary-block{
+    display: none;
+  }
+  .date {
+    flex-direction: column;
+  }
+  #education-date-id{
+    width: 100%;
+  }
+  #date-id{
+    width: 100%;
+  }
+  #title-create-biography{
+    font-size: 22px;
+  }
+  .MuiAccordionSummary-content {
+    justify-content: flex-start;
+  }
+  .biography_wrap_button-step{
+    margin-bottom: 15px;
+  }
+  .biography__img-info{
+    width: 100%;
+  }
+  .biography__img-wrap{
+    flex-direction: column;
+  }
+  .image-cropper{
+    max-width: 100% !important;
+    border: 1px solid #000000;
+    margin: 10px;
+  }
+}

@@ -1,0 +1,16 @@
+#left-menu-component{
+    background: #f7f7f7;
+    height: 100%;
+    /*height: 80vh;*/
+    /*overflow-y: scroll;*/
+    min-height: 80vh;
+    width: 256px
+}
+
+
+@media screen and ( max-width: 900px ) {
+    #left-menu-component{
+        width: 100%;
+        min-height: auto;
+    }
+}

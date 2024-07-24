@@ -1,0 +1,39 @@
+@function _size($n) {
+    $sum: calc($n / 16);
+
+    @return $sum * 1rem;
+}
+
+@function _media($n) {
+    $sum: calc($n / 16);
+
+    @return $sum * 1em;
+}
+
+.profile-component{
+    display: flex;
+    flex-direction: row;
+}
+
+.profile {
+    &__img {
+        margin: 0 auto;
+        margin-top: _size(20);
+        margin-bottom: _size(20);
+        max-width: _size(300);
+        height: _size(300);
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: _size(20);
+        max-width: _size(600);
+        margin: 0 auto;
+        margin-bottom: _size(30);
+    }
+}

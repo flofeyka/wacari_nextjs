@@ -1,0 +1,16 @@
+{
+  "contacts": {
+  "phoneSupport": "тут будет номер",
+  "mailSupport": "тут будет почта",
+  "sendingNotifications": "test@sending.test",
+  "cooperation": "test@cooperation.test"
+  },
+  "requisites": {
+    "fullname": "Общество с ограниченной ответственностью \"СОДЕРИЗ\"",
+    "INN": "0275904346",
+    "KPP": "027401001",
+    "OGRN": "1150280072040",
+    "legalAddress": "Башкортостан Респ, город Уфа, г Уфа, ул Батырская, д. 4, к. 2, офис 404",
+    "actualAddress": "Башкортостан Респ, город Уфа, г Уфа, ул Батырская, д. 4, к. 2, офис 404"
+  }
+}

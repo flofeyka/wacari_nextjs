@@ -1,0 +1,35 @@
+version: '3.4'
+
+services:
+  wacari-frontend-nginx:
+    image: wacari-frontend-nginx
+    container_name: wacari-frontend-nginx
+    build:
+      context: docker/development/nginx
+      dockerfile: Dockerfile
+    volumes:
+      - "./:/app"
+    ports:
+      - "3000:3000"
+    restart: always
+    depends_on:
+      - wacari-frontend-node-server
+
+  wacari-frontend-node-server:
+    image: node:18-alpine
+    container_name: wacari-frontend-node-server
+    volumes:
+      - "./:/app"
+      - "./logs:/root/.npm/_logs/"
+    working_dir: /app
+    environment:
+      NODE_ENV: production
+    command: npm start
+
+  wacari-frontend-node:
+    image: node:18-alpine
+    container_name: wacari-frontend-node
+    volumes:
+      - "./:/app"
+      - "./logs:/root/.npm/_logs/"
+    working_dir: /app

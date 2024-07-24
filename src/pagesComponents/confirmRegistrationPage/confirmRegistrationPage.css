@@ -1,0 +1,23 @@
+.confirm-registration-page{
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.confirm-registration-wrapper{
+
+}
+
+.confirm-registration-icon{
+    display: flex;
+    justify-content: center;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+@media screen and ( max-width: 900px ) {
+    .confirm-registration-wrapper{
+        width: 80%;
+    }
+}

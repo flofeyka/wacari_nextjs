@@ -1,0 +1,84 @@
+#favorites-page{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+#favorites-page-wrapper{
+    margin: 20px;
+    width: 100%;
+}
+
+
+#people-wrapper{
+    margin: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+#person-block{
+    background: #f7f7f7;
+    border-radius: 8px;
+    width: 29%;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#person-block:hover{
+    background: #f1f1f1;
+}
+
+#person-img{
+    border: 1px solid #cccbcb;
+    width: 25%;
+}
+
+#person-fio{
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+#person-info-block{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.person-info-detail{
+    color: #0053e5;
+}
+
+.person-link-button{
+    background: #1677ff;
+    padding: 7px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    border-bottom: solid #ffffff;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.favorites-on{
+    color: #ff0000;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+#pagination-home-page{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+@media screen and ( max-width: 900px ) {
+    #component-left-menu{
+        display: none;
+    }
+}

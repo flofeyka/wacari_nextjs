@@ -1,0 +1,61 @@
+#mtc-people-list-component{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+#mtc-people-list-block{
+    border-radius: 35px;
+    width: 375px;
+    min-height: 30rem;
+    display: flex;
+    align-items: end;
+    cursor: pointer;
+}
+
+#mtc-people-list-person{
+    /*background: #c9e4ff;*/
+    background-image: linear-gradient(139.21deg,#0000,#666 145.16%),linear-gradient(-139.21deg,#0000,#666 145.16%);
+    backdrop-filter: blur(15px);
+    border-radius: 25px;
+    padding: 15px;
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+    margin: 15px;
+}
+
+#mtc-date {
+    white-space: nowrap; /* Запрещаем перенос строк */
+    overflow: hidden; /* Обрезаем все, что не помещается в область */
+    text-overflow: ellipsis;
+    max-width: 300px;
+}
+#mtc-people-list-person > div {
+    color: white;
+}
+
+#mtc-person-fio{
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: white;
+    font-size: 20px;
+}
+
+.mtc-person-info-detail{
+    /*color: #0053e5;*/
+    color: white;
+}
+
+@media screen and ( max-width: 450px ) {
+    #mtc-people-list-component{
+        flex-direction: column;
+    }
+    #mtc-people-list-block{
+        width: 95%;
+        margin: 7px 10px;
+    }
+}

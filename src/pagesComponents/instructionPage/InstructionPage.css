@@ -1,0 +1,14 @@
+#instruction-page{
+    display: flex;
+    flex-direction: row;
+}
+
+#instruction-page-wrapper{
+    margin: 20px;
+}
+
+@media screen and ( max-width: 900px ) {
+    #component-left-menu{
+        display: none;
+    }
+}

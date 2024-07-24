@@ -1,0 +1,23 @@
+#my-biography-page{
+    display: flex;
+    flex-direction: row;
+}
+
+#my-biography-page-wrapper{
+    margin: 20px;
+    width: 100%;
+}
+
+#create-biography{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 20px;
+}
+
+@media screen and ( max-width: 900px ) {
+    #component-left-menu{
+        display: none;
+    }
+}

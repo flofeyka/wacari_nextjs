@@ -1,0 +1,33 @@
+#about-page{
+    display: flex;
+    flex-direction: row;
+}
+
+#about-page-wrapper{
+    margin: 20px;
+}
+
+#welcome-on-about{
+    background: #daf2ff;
+    padding: 20px 20px;
+    margin-bottom: 20px;
+    line-height: 2;
+}
+
+#welcome-on-about-title{
+    font-weight: 600;
+    font-size: 24px;
+}
+
+#welcome-on-about-description{
+    color: #7c7c7c;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+@media screen and ( max-width: 900px ) {
+    #component-left-menu{
+        display: none;
+    }
+}

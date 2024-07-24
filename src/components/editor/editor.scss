@@ -1,0 +1,35 @@
+@import '../../../css/app.scss';
+
+.editor {
+    border: 1px solid var(--color-silver);
+    border-radius: 10px;
+
+    &-btn {
+        display: flex;
+        align-items: center;
+        gap: _size(10);
+        padding: _size(5);
+
+        .is-active {
+            color: var(--color-link)
+        }
+    }
+
+    .tiptap {
+        height: _size(500);
+        border-top: 1px solid var(--color-silver);
+        padding: _size(20);
+        blockquote {
+            background-color: #f9f9f9;
+            border-left: 5px solid #3498db;
+            padding: 10px;
+            margin: 10px 0;
+            font-style: italic;
+        }
+
+        ul {
+            list-style-type: square;
+            margin-left: 20px;
+        }
+    }
+}

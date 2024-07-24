@@ -1,0 +1,33 @@
+@function _size($n) {
+    $sum: calc($n / 16);
+
+    @return $sum * 1rem;
+}
+
+@function _media($n) {
+    $sum: calc($n / 16);
+
+    @return $sum * 1em;
+}
+
+.name-page {
+    h1 {
+        font-family: var(--inter) !important;
+        font-size: _size(30);
+        color: var(--color-blue);
+        border-bottom: 1px solid var(--color-silver);
+        padding-bottom: _size(10);
+        font-weight: 500;
+    }
+    &__info {
+        background-color: rgb(234, 252, 255);
+        padding: -size(8) _size(20);
+        margin-top: _size(20);
+        border: 1px solid rgb(188, 188, 188);
+        p {
+            font-weight: 600;
+            font-size: _size(20);
+            color: rgb(47, 90, 155);
+        }
+    }
+}

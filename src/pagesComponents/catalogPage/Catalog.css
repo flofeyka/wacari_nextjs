@@ -1,0 +1,19 @@
+#catalog-page{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+#catalog-breadcrumb{
+    margin: 20px;
+}
+
+#catalog-people-list{
+    width: 100%;
+}
+
+@media screen and ( max-width: 900px ) {
+    #component-left-menu{
+        display: none;
+    }
+}

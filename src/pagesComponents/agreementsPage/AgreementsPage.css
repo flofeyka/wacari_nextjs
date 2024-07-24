@@ -1,0 +1,19 @@
+#agreements-page{
+    display: flex;
+    flex-direction: row;
+}
+
+#agreements-page-wrapper{
+    margin: 20px;
+}
+
+.agreement-text{
+    color: #484848;
+    line-height: 2;
+}
+
+@media screen and ( max-width: 900px ) {
+    #component-left-menu{
+        display: none;
+    }
+}

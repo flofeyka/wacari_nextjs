@@ -1,0 +1,20 @@
+#help-page{
+    display: flex;
+    flex-direction: row;
+}
+
+#help-page-wrapper{
+    margin: 20px;
+    width: 80%;
+}
+
+#help-uploader-block{
+    margin: 20px;
+    width: 50%;
+}
+
+@media screen and ( max-width: 900px ) {
+    #component-left-menu{
+        display: none;
+    }
+}

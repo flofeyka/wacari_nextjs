@@ -1,0 +1,35 @@
+0 verbose cli /usr/local/bin/node /usr/local/bin/npm
+1 info using npm@10.7.0
+2 info using node@v18.20.3
+3 silly config:load:file:/usr/local/lib/node_modules/npm/npmrc
+4 silly config:load:file:/app/.npmrc
+5 silly config:load:file:/root/.npmrc
+6 silly config:load:file:/usr/local/etc/npmrc
+7 verbose title npm start
+8 verbose argv "start"
+9 verbose logfile logs-max:10 dir:/root/.npm/_logs/2024-07-22T11_21_40_720Z-
+10 verbose logfile /root/.npm/_logs/2024-07-22T11_21_40_720Z-debug-0.log
+11 silly logfile done cleaning log files
+12 http fetch GET 200 https://registry.npmjs.org/npm 195ms
+13 notice
+13 notice New minor version of npm available! 10.7.0 -> 10.8.2
+13 notice Changelog: https://github.com/npm/cli/releases/tag/v10.8.2
+13 notice To update run: npm install -g npm@10.8.2
+13 notice  { force: true, [Symbol(proc-log.meta)]: true }
+14 verbose stack Error: command failed
+14 verbose stack     at ChildProcess.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/@npmcli/promise-spawn/lib/index.js:53:27)
+14 verbose stack     at ChildProcess.emit (node:events:517:28)
+14 verbose stack     at maybeClose (node:internal/child_process:1098:16)
+14 verbose stack     at ChildProcess._handle.onexit (node:internal/child_process:303:5)
+15 verbose pkgid wacari@0.1.0
+16 verbose cwd /app
+17 verbose Linux 5.10.0-30-cloud-amd64
+18 verbose node v18.20.3
+19 verbose npm  v10.7.0
+20 error path /app
+21 error command failed
+22 error signal SIGTERM
+23 error command sh -c NODE_ENV=production node server.js
+24 verbose exit 1
+25 verbose code 1
+26 error A complete log of this run can be found in: /root/.npm/_logs/2024-07-22T11_21_40_720Z-debug-0.log

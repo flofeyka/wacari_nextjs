@@ -1,0 +1,79 @@
+@function _size($n) {
+    $sum: calc($n / 16);
+
+    @return $sum * 1rem;
+}
+
+@function _media($n) {
+    $sum: calc($n / 16);
+
+    @return $sum * 1em;
+}
+
+.biography {
+    &__input-wrap-v2 {
+        display: flex;
+        width: 100%;
+        gap: _size(20);
+
+        //.MuiFormControl-root {
+        //    max-width: _size(250);
+        //}
+    }
+
+    &__input-wrap-without-date{
+        display: flex;
+        width: 71.8%;
+        gap: _size(20);
+    }
+
+    &__input-element-v2{
+        width: 87%;
+    }
+
+    &__input-v2{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+}
+
+.date-v2 {
+    display: flex;
+    align-items: center;
+    gap: _size(20);
+    width: 30%;
+}
+
+.date-v2 .MuiInputAdornment-root {
+    width: auto;
+}
+
+#biography__input-wrap-v2-indents{
+    margin-bottom: 15px;
+}
+
+
+@media screen and ( max-width: 900px ) {
+    .biography {
+        flex-direction: column;
+        &__input-wrap-v2 {
+            flex-direction: column;
+
+            .MuiFormControl-root {
+                max-width: 100%;
+            }
+        }
+        &__input-wrap-without-date{
+            flex-direction: column;
+            width: 100%;
+        }
+    }
+
+    .date-v2 {
+        flex-direction: column;
+        align-items: normal;
+        width: 100%;
+    }
+}
