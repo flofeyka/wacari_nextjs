@@ -3,7 +3,7 @@
 import baseAPI from "../baseAPI";
 
 export const getFavouritesList = async (token: string) => {
-    return (await baseAPI.get(`/api/v1/biographies/my`, { headers: { Authorization: "Bearer " + token } })).data;
+    return (await baseAPI.get(`/api/v1/biographies/my/bookmarks`, { headers: { Authorization: "Bearer " + token } })).data;
 };
 
 export const addOrDeleteFavourite = async (id: string, token: string) => {

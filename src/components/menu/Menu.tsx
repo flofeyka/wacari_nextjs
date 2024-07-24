@@ -38,10 +38,12 @@ const Menu = () => {
     }, []);
 
     useEffect(() => {
-        refreshToken(localStorage.getItem("refreshToken") || "").then((response) => {
-            localStorage.setItem("accessToken", response.data.token);
-            localStorage.setItem("refreshToken", response.data.refreshToken);
-        })
+        if (localStorage.getItem("refreshToken")) {
+            refreshToken(localStorage.getItem("refreshToken") || "").then((response) => {
+                localStorage.setItem("accessToken", response.data.token);
+                localStorage.setItem("refreshToken", response.data.refreshToken);
+            })
+        }
     }, [])
 
     const isTokenExpired = async (token: string, token2: string) => {
@@ -245,9 +247,11 @@ const Menu = () => {
                         </>
                 }
             </Modal>
-            <img id="menu-logo" src="/logo.png" alt="" onClick={() => router.push('/')} />
-            {accessToken === null || accessToken === "" ?
-                <div id="menu-wrapper">
+            <Link href="/">
+                <img id="menu-logo" src="/logo.png" alt="" height={100} />
+            </Link>
+            <div id="menu-wrapper">
+                {!accessToken ?
                     <div id="menu-auth">
                         <div className="menu-item"
                             onClick={() => {
@@ -263,59 +267,59 @@ const Menu = () => {
                         }}>
                             Войти
                         </Button>
-                    </div>
-                    {/* <div id="menu-favicon">
+                        {/* <div id="menu-favicon">
                         <img src="/title.svg" id="menu-favicon-img" alt="favicon"/>
                     </div> */}
-                </div>
-                :
-                <div id="menu-wrapper">
-                    <Link style={{ marginRight: "20px" }} className="menu-item" href="/favourites">
-                        Избранное
-                    </Link>
-                    <Avatar size={64} icon={<UserOutlined />} style={{ marginRight: "50px" }} className="menu-avatar" />
-                    <MenuOutlined onClick={showDrawer} />
-                    <Drawer
-                        title={<span style={{ fontSize: "20px", color: "gray" }}>Меню</span>}
-                        onClose={onCloseDrawer}
-                        open={openDrawer}
-                    >
-                        <p>
-                            <Link className="menu-item-drawer" href="/myBiography" onClick={onCloseDrawer}>
-                                Моя биография
-                            </Link>
-                        </p>
-                        <p>
-                            <Link className="menu-item-drawer" href="/rules" onClick={onCloseDrawer}>
-                                Правило и руководство
-                            </Link>
-                        </p>
-                        <p>
-                            <Link className="menu-item-drawer" href="/help" onClick={onCloseDrawer}>
-                                Помогите нам стать лучше
-                            </Link>
-                        </p>
-                        <p>
-                            <Link className="menu-item-drawer" href="/setting" onClick={onCloseDrawer}>
-                                Настройки
-                            </Link>
-                        </p>
-                        <p
-                            className="menu-item-drawer"
-                            onClick={() => {
-                                localStorage.removeItem("accessToken");
-                                localStorage.removeItem("refreshToken");
-                                onCloseDrawer()
-                                setAccessToken("")
-                                setTokenRefresh("")
-                                router.push('/')
-                            }}
+                    </div>
+                    :
+                    <div>
+                        <Link style={{ marginRight: "20px" }} className="menu-item" href="/favourites">
+                            Избранное
+                        </Link>
+                        <Avatar size={64} icon={<UserOutlined />} style={{ marginRight: "50px" }} className="menu-avatar" />
+                        <MenuOutlined onClick={showDrawer} />
+                        <Drawer
+                            title={<span style={{ fontSize: "20px", color: "gray" }}>Меню</span>}
+                            onClose={onCloseDrawer}
+                            open={openDrawer}
                         >
-                            Выйти
-                        </p>
-                    </Drawer>
-                </div>
-            }
+                            <p>
+                                <Link className="menu-item-drawer" href="/myBiography" onClick={onCloseDrawer}>
+                                    Моя биография
+                                </Link>
+                            </p>
+                            <p>
+                                <Link className="menu-item-drawer" href="/rules" onClick={onCloseDrawer}>
+                                    Правило и руководство
+                                </Link>
+                            </p>
+                            <p>
+                                <Link className="menu-item-drawer" href="/help" onClick={onCloseDrawer}>
+                                    Помогите нам стать лучше
+                                </Link>
+                            </p>
+                            <p>
+                                <Link className="menu-item-drawer" href="/setting" onClick={onCloseDrawer}>
+                                    Настройки
+                                </Link>
+                            </p>
+                            <p
+                                className="menu-item-drawer"
+                                onClick={() => {
+                                    localStorage.removeItem("accessToken");
+                                    localStorage.removeItem("refreshToken");
+                                    onCloseDrawer()
+                                    setAccessToken("")
+                                    setTokenRefresh("")
+                                    router.push('/')
+                                }}
+                            >
+                                Выйти
+                            </p>
+                        </Drawer>
+                    </div>
+                }
+            </div>
         </div>
     )
 }

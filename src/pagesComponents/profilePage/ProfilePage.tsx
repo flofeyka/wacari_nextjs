@@ -10,6 +10,7 @@ import MtcPeopleList from "@/components/peopleList/MtcPeopleList";
 import {getBiographyDetail} from "@/api/biography/biography";
 import {IBiographyDetail} from "@/modals/BiographyDetail";
 import formatDate from "@/utils/formatDate";
+import Biographies from "@/components/biographies/Biographies";
 
 
 const ProfileDetailPage = (profileID: any) => {
@@ -189,19 +190,7 @@ const ProfileDetailPage = (profileID: any) => {
                         <FamilyTreeComponent/>
                     </div>
                 </div>
-                <div style={{display:"flex", justifyContent:"flex-end"}}>
-                    <GroupOutlined
-                        // style={{marginLeft:"5px", color:"grey", border: "1px grey solid", padding:"0 5px", cursor: "pointer"}}
-                        style={{color:"grey", cursor: "pointer", marginTop:"25px"}}
-                        onClick={()=>{
-                            setMtsBlock(!mtsBlock)
-                        }}
-                    />
-                </div>
-                {mtsBlock ?
-                    <MtcPeopleList/>:
-                    <PeopleList/>
-                }
+                {/* <Biographies/> */}
             </div>
         </div>
     )

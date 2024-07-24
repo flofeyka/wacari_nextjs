@@ -26,22 +26,38 @@ import MtcPeopleList from "@/components/peopleList/MtcPeopleList";
 import { InfoCircleOutlined } from '@ant-design/icons';
 import { jwtDecode } from "jwt-decode";
 import { refreshToken } from "@/api/token/token";
+import { getBiographiesList } from "@/api/biography/biography";
+import Biographies from "@/components/biographies/Biographies";
+import { IBiographyList } from "@/modals/Biography";
 
 
 const { Search } = Input;
 
 const HomePage = () => {
-    const [openFilters, setOpenFilters] = useState<boolean>(false);
-    const [currentPage, setCurrentPage] = useState(0);
     const [modalLogin, setModalLogin] = useState<boolean>(false);
     const [loginType, setLoginType] = useState<string>("LOGIN")
     const [agreements, setAgreements] = useState<boolean>(false)
     const [accessToken, setAccessToken] = useState<string|null>("")
     const [tokenRefresh, setRefreshToken] = useState<string|null>("");
-    const [update , setUpdate] = useState<number>(0)
-    const [mtsBlock, setMtsBlock] = useState<boolean>(false)
     const router = useRouter()
     const [api, contextHolder] = notification.useNotification();
+
+    const [biographiesData, setBiographiesData] = useState<{data: IBiographyList[], totalItemCount: number, limit: number}>({
+        data: [],
+        totalItemCount: 0,
+        limit: 0
+    });
+
+
+    useEffect(() => {
+        const fetchBiographies = async () => {
+            const data = await getBiographiesList(localStorage.getItem("accessToken") || undefined);
+            console.log(data);
+            setBiographiesData(data);
+        }
+
+        fetchBiographies();
+    }, [])
 
 
     const openNotification = () => {
@@ -60,23 +76,6 @@ const HomePage = () => {
     useEffect(() => {
         setAccessToken(localStorage.getItem("accessToken") || "")
     }, []);
-
-    const onSearch: SearchProps['onSearch'] = (value, _e, info) => {
-        console.log(info?.source, value);
-    }
-
-    const handleChangeContinent = (value: string) => {
-        console.log(`selected ${value}`);
-    };
-
-    const handleChangeCountry = (value: string) => {
-        console.log(`selected ${value}`);
-    };
-
-    const onChange: PaginationProps['onChange'] = (page: any) => {
-        console.log(page);
-        setCurrentPage(page);
-    };
 
     const showModalLogin = () => {
         setModalLogin(true);
@@ -172,72 +171,7 @@ const HomePage = () => {
                 <div id="home-page-globe-component">
                     <GlobeComponent />
                 </div>
-                <div id="search-and-filters">
-                    <div id="search-and-filters-wrap">
-                        <Search placeholder="Введите ФИО" onSearch={onSearch}/>
-                        <GroupOutlined
-                            style={{
-                                marginLeft:"5px",
-                                color:"grey",
-                                border: "1px grey solid",
-                                padding:"0 5px",
-                                cursor: "pointer",
-                                borderRadius:"6px"
-                        }}
-                            onClick={()=>{
-                                setMtsBlock(!mtsBlock)
-                            }}
-                        />
-                    </div>
-                    <div id="filter-text">
-                        <span onClick={()=>setOpenFilters(!openFilters)}>
-                            Расширенный поиск
-                            {openFilters? <CaretUpOutlined />: <CaretDownOutlined />}
-                        </span>
-                    </div>
-                    {openFilters?
-                        <div id="filters-form">
-                            <div id="filter-inputs">
-                                <Input placeholder="Фамилия" className="filter-input"/>
-                                <Input placeholder="Имя" className="filter-input"/>
-                                <Input placeholder="Отчество" className="filter-input"/>
-                                <Select
-                                    style={{ width: 200 }}
-                                    onChange={handleChangeContinent}
-                                    placeholder={"Выберите континент"}
-                                    options={[
-                                        { value: '1', label: 'Евразия' },
-                                        { value: '2', label: 'Африка' },
-                                        { value: '3', label: 'Северная Америка' },
-                                        { value: '4', label: 'Южная Америка'},
-                                        { value: '5', label: 'Австралия'},
-                                        { value: '6', label: 'Антарктида'},
-                                    ]}
-                                    className="filter-input"
-                                />
-                                <Select
-                                    style={{ width: 200 }}
-                                    onChange={handleChangeCountry}
-                                    placeholder={"Выберите страну"}
-                                    options={[
-                                        { value: '1', label: 'Пока пусто', disabled: true },
-                                    ]}
-                                />
-                            </div>
-                            <div style={{display:"flex", justifyContent:"flex-end", marginTop:"10px"}}>
-                                <Button type="primary" htmlType="submit" >
-                                    Поиск
-                                </Button>
-                            </div>
-                        </div>
-                    : null}
-                </div>
-
-                {/*Список людей*/}
-                {mtsBlock ?
-                    <MtcPeopleList/>:
-                    <PeopleList/>
-                }
+                <Biographies biographiesData={biographiesData}/>
             </div>
         </div>
     )

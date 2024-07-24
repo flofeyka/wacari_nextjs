@@ -2,8 +2,8 @@
 import baseAPI from "@/api/baseAPI";
 
 
-export const getBiographiesList = async (token: string) => {
-    return (await baseAPI.get(`/api/v1/biographies`, { headers: { Authorization: "Bearer " + token } })).data;
+export const getBiographiesList = async (token: string | null | undefined, currentPage: number = 1) => {
+    return (await baseAPI.get(`/api/v1/biographies?currentPage=${currentPage}`, token ? { headers: { Authorization: "Bearer " + token } } : undefined)).data;
 };
 
 

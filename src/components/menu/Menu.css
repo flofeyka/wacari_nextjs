@@ -25,11 +25,13 @@
 
 #menu-logo{
     cursor: pointer;
+    /* height: 125px;
+    width: 150px; */
 }
 
 #menu-wrapper {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     width: 100%;
 }
 
@@ -60,7 +62,6 @@
 
 .menu-item{
     cursor: pointer;
-    margin-right: 20px;
     padding: 0 10px;
     border-bottom: solid #ffffff;
     color: #000000;
@@ -87,7 +88,6 @@
 
 .menu-item-drawer{
     cursor: pointer;
-    margin-right: 20px;
     text-decoration: none;
     color: #000000;
     font-size: 24px;

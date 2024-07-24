@@ -34,7 +34,7 @@ const CatalogPage = (catalogID: any) => {
                 <div id="catalog-breadcrumb">
                     <Breadcrumb items={items}/>
                 </div>
-                <PeopleList/>
+                {/* <PeopleList /> */}
             </div>
         </div>
     )
