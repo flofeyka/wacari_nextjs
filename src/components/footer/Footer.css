@@ -10,6 +10,7 @@
 
 #footer-logo{
     cursor: pointer;
+    height: 20vh;
 }
 
 #footer-component > img {

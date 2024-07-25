@@ -20,14 +20,14 @@ const MtcPeopleList: FC<{ peopleList: IBiographyList[], totalCount: number, page
         return (
             <div style={{ display: "flex", flexDirection: "column" }}>
                 <div id="mtc-people-list-component">
-                    {peopleList.map((biography) => {
+                    {peopleList.map((biography: any) => {
                         return (
                             <div
                                 id="mtc-people-list-block"
                                 key={biography.id}
                                 style={{
                                     // backgroundImage: `url('default-avatar.png')`,
-                                    background: "linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('default-avatar.png')",
+                                    background: `linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('${biography.photo[0]}')`,
                                     backgroundRepeat: "no-repeat",
                                     backgroundSize: "cover",
                                     backgroundPosition: "center",
