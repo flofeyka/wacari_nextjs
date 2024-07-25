@@ -1,9 +1,9 @@
 'use client'
 import dynamic from 'next/dynamic';
-import {GlobeMethods} from 'react-globe.gl';
+import { GlobeMethods } from 'react-globe.gl';
 // import Globe, {GlobeMethods} from 'react-globe.gl';
-import {autoImplementMethods} from "next/dist/server/future/route-modules/app-route/helpers/auto-implement-methods";
-import React, {useEffect, useState} from "react";
+import { autoImplementMethods } from "next/dist/server/future/route-modules/app-route/helpers/auto-implement-methods";
+import React, { useEffect, useState } from "react";
 // const Globe = dynamic(import('react-globe.gl'), { ssr: false });
 const Globe = dynamic(() => import('react-globe.gl'), {
     ssr: false,
@@ -11,7 +11,7 @@ const Globe = dynamic(() => import('react-globe.gl'), {
 
 
 const GlobeComponent = () => {
-    const [width, setWidth] =useState<number>(1650)
+    const [width, setWidth] = useState<number>(1650)
 
     const globeEl = React.useRef<GlobeMethods>() as React.MutableRefObject<GlobeMethods>;
 
@@ -31,9 +31,7 @@ const GlobeComponent = () => {
     }, [globeEl]);
 
     useEffect(() => {
-        return () => {
-            setWidth(window.innerWidth > 1400? window.innerWidth - 350: window.innerWidth - 50)
-        };
+        setWidth(window.innerWidth > 1400 ? window.innerWidth - 350 : window.innerWidth - 50)
     }, [width]);
 
 

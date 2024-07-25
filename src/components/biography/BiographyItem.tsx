@@ -7,9 +7,11 @@ import "./BiographyItem.css";
 
 
 export default function BiographyItem({ photo, fullName, birthDate, birthPlace, bookmark, guid, id }:
-    { photo: string, fullName: {firstName: string, lastName: string, middleName: string }, birthDate: Date, 
-    birthPlace: { continent: { title: string }, country: { title: string }, city: { title: string } }, 
-    bookmark: null | boolean, guid: string, id: string }) {
+    {
+        photo: string, fullName: { firstName: string, lastName: string, middleName: string }, birthDate: Date,
+        birthPlace: { continent: { title: string }, country: { title: string }, city: { title: string } },
+        bookmark: null | boolean, guid: string, id: string
+    }) {
     const [liked, setLiked] = useState<boolean>(bookmark !== null && bookmark);
 
     const setLike = async () => {
@@ -17,9 +19,11 @@ export default function BiographyItem({ photo, fullName, birthDate, birthPlace, 
         setLiked(true);
     }
 
+    console.log(bookmark);
+
     return <div id="person-block" key={id}>
         <div id="person-img">
-            <img src={photo} alt="ava"/>111
+            <img src={photo} alt="ava" />111
         </div>
         <div id="person-info-block">
             <div id="person-fio">
@@ -32,7 +36,7 @@ export default function BiographyItem({ photo, fullName, birthDate, birthPlace, 
             </span>
             </div>
             <div style={{ display: "flex", justifyContent: "flex-end", marginTop: "10px" }}>
-                {liked ? <HeartFilled onClick={setLike} className="favorites-on"/> : <HeartOutlined onClick={setLike} className="favorites-on" />}
+                {bookmark !== null && <span>{liked ? <HeartFilled onClick={setLike} className="favorites-on" /> : <HeartOutlined onClick={setLike} className="favorites-on" />}</span>}
                 <Link type="primary" href={`/profile/${guid}`} className="person-link-button">
                     Узнать больше
                 </Link>

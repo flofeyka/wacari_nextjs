@@ -14,11 +14,13 @@ const MyBiographyPage = () => {
         data: [],
         totalItemCount: 0,
         limit: 0
-    })
+    });
+
+    const [page, setPage] = useState<number>(1);
 
     useEffect(() => {
         const fetchBiographies = async () => {
-            const data = await getMyBiographies(localStorage.getItem("accessToken") || "aaa");
+            const data = await getMyBiographies(localStorage.getItem("accessToken") || "aaa", page);
             setBiographiesData(data);
         }
 
@@ -36,7 +38,7 @@ const MyBiographyPage = () => {
                 {biographiesData.data.length === 0 ?
                     <div id="create-biography">
                         У вас еще нет биографии. <Link href="/biography/create"> Создать</Link>?
-                    </div> : <Biographies biographiesData={biographiesData}/>
+                    </div> : <Biographies currentPage={page} setCurrentPage={setPage} biographiesData={biographiesData}/>
                 }
             </div>
         </div>

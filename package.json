@@ -42,6 +42,7 @@
     "react-query": "^3.39.3",
     "react-tooltip": "^5.27.0",
     "sass": "^1.77.6",
+    "sharp": "^0.33.4",
     "tiptap": "^1.32.2"
   },
   "devDependencies": {

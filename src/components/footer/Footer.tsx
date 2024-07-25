@@ -3,9 +3,10 @@ import "./Footer.css"
 import CONSTANTS from "@/constants.json"
 import Link from "next/link";
 import {useRouter} from "next/navigation";
+import { FC } from "react";
 
 
-const Footer = () => {
+const Footer:FC = () => {
     const router = useRouter()
 
 
@@ -22,9 +23,9 @@ const Footer = () => {
                 <Link className="footer-menu-item" href="/help">
                     Помогите нам стать лучше
                 </Link>
-                <Link className="footer-menu-item" href="/instruction">
+                <a className="footer-menu-item" href="https://www.youtube.com/watch?v=3NhjzPMC9lE">
                     Как добавить биографию
-                </Link>
+                </a>
             </div>
         </div>
     )

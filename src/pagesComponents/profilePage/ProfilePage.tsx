@@ -187,7 +187,7 @@ const ProfileDetailPage = (profileID: any) => {
                 <div id="profile-family-tree">
                     <p className="profile-paragraph">Родословное древо</p>
                     <div id="tree-block">
-                        <FamilyTreeComponent/>
+                        <FamilyTreeComponent parentName={profileData?.fullName} childrens={profileData?.childrens}/>
                     </div>
                 </div>
                 {/* <Biographies/> */}

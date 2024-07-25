@@ -39,6 +39,7 @@ const HomePage = () => {
     const [agreements, setAgreements] = useState<boolean>(false)
     const [accessToken, setAccessToken] = useState<string|null>("")
     const [tokenRefresh, setRefreshToken] = useState<string|null>("");
+    const [currentPage, setCurrentPage] = useState(1);
     const router = useRouter()
     const [api, contextHolder] = notification.useNotification();
 
@@ -51,13 +52,12 @@ const HomePage = () => {
 
     useEffect(() => {
         const fetchBiographies = async () => {
-            const data = await getBiographiesList(localStorage.getItem("accessToken") || undefined);
-            console.log(data);
+            const data = await getBiographiesList(localStorage.getItem("accessToken") || undefined, currentPage);
             setBiographiesData(data);
         }
 
         fetchBiographies();
-    }, [])
+    }, [currentPage])
 
 
     const openNotification = () => {
@@ -171,7 +171,7 @@ const HomePage = () => {
                 <div id="home-page-globe-component">
                     <GlobeComponent />
                 </div>
-                <Biographies biographiesData={biographiesData}/>
+                <Biographies currentPage={currentPage} setCurrentPage={setCurrentPage} biographiesData={biographiesData}/>
             </div>
         </div>
     )

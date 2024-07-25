@@ -8,10 +8,9 @@ import PeopleList from "@/components/peopleList/PeopleList";
 import MtcPeopleList from "@/components/peopleList/MtcPeopleList";
 import { IBiographyList } from "@/modals/Biography";
 
-export default function Biographies({biographiesData}: 
-    {biographiesData: {data: IBiographyList[], totalItemCount: number, limit: number}}) {
+export default function Biographies({biographiesData, currentPage, setCurrentPage}: 
+    {biographiesData: {data: IBiographyList[], totalItemCount: number, limit: number}, currentPage: number, setCurrentPage: (currentPage: number) => void}) {
     const [openFilters, setOpenFilters] = useState<boolean>(false);
-    const [currentPage, setCurrentPage] = useState(0);
     const [mtsBlock, setMtsBlock] = useState<boolean>(false)
 
     const onSearch: SearchProps['onSearch'] = (value, _e, info) => {
