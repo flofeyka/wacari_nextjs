@@ -20,7 +20,7 @@
 #mtc-people-list-person{
     /*background: #c9e4ff;*/
     background-image: linear-gradient(139.21deg,#0000,#666 145.16%),linear-gradient(-139.21deg,#0000,#666 145.16%);
-    backdrop-filter: blur(15px);
+    backdrop-filter: blur(10px);
     border-radius: 25px;
     padding: 15px;
     width: 100%;

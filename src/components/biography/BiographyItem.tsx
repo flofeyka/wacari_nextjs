@@ -8,7 +8,7 @@ import "./BiographyItem.css";
 
 export default function BiographyItem({ photo, fullName, birthDate, birthPlace, bookmark, guid, id }:
     {
-        photo: string, fullName: { firstName: string, lastName: string, middleName: string }, birthDate: Date,
+        photo: [string], fullName: { firstName: string, lastName: string, middleName: string }, birthDate: Date,
         birthPlace: { continent: { title: string }, country: { title: string }, city: { title: string } },
         bookmark: null | boolean, guid: string, id: string
     }) {
@@ -23,7 +23,7 @@ export default function BiographyItem({ photo, fullName, birthDate, birthPlace, 
 
     return <div id="person-block" key={id}>
         <div id="person-img">
-            <img src={photo} alt="ava" />111
+            <img src={photo[0]} id="avatar" alt="ava" />
         </div>
         <div id="person-info-block">
             <div id="person-fio">
@@ -35,7 +35,7 @@ export default function BiographyItem({ photo, fullName, birthDate, birthPlace, 
                 {birthPlace.continent.title}, {birthPlace.country.title}, {birthPlace.city.title}
             </span>
             </div>
-            <div style={{ display: "flex", justifyContent: "flex-end", marginTop: "10px" }}>
+            <div style={{ display: "flex", justifyContent: "flex-end", alignItems: "center", marginTop: "10px" }}>
                 {bookmark !== null && <span>{liked ? <HeartFilled onClick={setLike} className="favorites-on" /> : <HeartOutlined onClick={setLike} className="favorites-on" />}</span>}
                 <Link type="primary" href={`/profile/${guid}`} className="person-link-button">
                     Узнать больше

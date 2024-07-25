@@ -16,7 +16,12 @@
 
 #person-img{
     border: 1px solid #cccbcb;
-    /*width: 25%;*/
+    width: 25%;
+    img {
+        width: 100%;
+        position: relative;
+        height: 100%;
+    }
 }
 
 #person-fio{
@@ -78,7 +83,7 @@
     }
 
     #person-block{
-        width: 90%;
+        width: 95%;
     }
     /*#people-wrapper{*/
     /*    margin: 0 !important;*/
