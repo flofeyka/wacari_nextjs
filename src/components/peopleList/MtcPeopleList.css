@@ -9,6 +9,7 @@
 
 #mtc-people-list-block{
     border-radius: 35px;
+    margin-right: 10px;
     width: 375px;
     min-height: 30rem;
     display: flex;

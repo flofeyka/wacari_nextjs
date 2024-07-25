@@ -2,8 +2,8 @@
 
 import baseAPI from "../baseAPI";
 
-export const getFavouritesList = async (token: string) => {
-    return (await baseAPI.get(`/api/v1/biographies/my/bookmarks`, { headers: { Authorization: "Bearer " + token } })).data;
+export const getFavouritesList = async (token: string, page: number) => {
+    return (await baseAPI.get(`/api/v1/biographies/my/bookmarks?page=${page}&limit=10`, { headers: { Authorization: "Bearer " + token } })).data;
 };
 
 export const addOrDeleteFavourite = async (id: string, token: string) => {
