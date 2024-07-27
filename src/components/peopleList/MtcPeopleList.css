@@ -23,7 +23,7 @@
     backdrop-filter: blur(10px);
     border-radius: 25px;
     padding: 15px;
-    width: 100%;
+    width: 95%;
     max-width: 100%;
     position: relative;
     margin: 15px;
@@ -54,9 +54,26 @@
 @media screen and ( max-width: 450px ) {
     #mtc-people-list-component{
         flex-direction: column;
+        display: flex;
+        align-items: center;
     }
     #mtc-people-list-block{
-        width: 95%;
-        margin: 7px 10px;
+        width: 90vw;
+        margin: 0;
+        margin-right: 0;
+    }
+
+    #mtc-people-list-block{
+        border-radius: 35px;
+        margin-right: 10px;
+        min-height: 25rem;
+    }
+    
+    #mtc-people-list-component {
+        margin-top: 10px;
+    }
+
+    #mtc-people-list-person {
+        width: 82.5%;
     }
 }

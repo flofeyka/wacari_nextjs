@@ -37,3 +37,9 @@
         margin-bottom: _size(30);
     }
 }
+
+@media (max-width: 700px) {
+    .biography_component-left-menu {
+        visibility: hidden;
+    }
+}

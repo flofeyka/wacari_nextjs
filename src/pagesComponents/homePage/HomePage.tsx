@@ -49,6 +49,7 @@ const HomePage = () => {
         limit: 0
     });
 
+    
 
     useEffect(() => {
         const fetchBiographies = async () => {
@@ -151,10 +152,10 @@ const HomePage = () => {
                         <span id="welcome-description">Свободный каталог биографий, каждый может создать биографию.</span>
                     </div>
                     <div id="create-biography">
-                        <span>Сейчас в Вакарии 110 статей на русском языке</span>
+                        <span id="articles">Сейчас в Вакарии 110 статей на русском языке</span>
                         <span id="create-biography-button">
                             {contextHolder}
-                            <Button type="primary"
+                            <Button type="primary" size="large" id="createButton"
                                     onClick={()=>
                                         accessToken ?
                                             router.push('/biography/create')

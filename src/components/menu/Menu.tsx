@@ -277,7 +277,7 @@ const Menu = () => {
                             Избранное
                         </Link>
                         <Avatar size={64} icon={<UserOutlined />} style={{ marginRight: "50px" }} className="menu-avatar" />
-                        <MenuOutlined onClick={showDrawer} />
+                        <MenuOutlined className="menuShower" onClick={showDrawer} />
                         <Drawer
                             title={<span style={{ fontSize: "20px", color: "gray" }}>Меню</span>}
                             onClose={onCloseDrawer}
