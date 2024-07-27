@@ -7,8 +7,27 @@
     -moz-transition: all 0.5s;
 }
 
+.treeImg {
+    height: 125px;
+    position: relative;
+    width: 100px;
+    border: 1px black solid;
+}
+
+.profileData {
+    margin-left: 10px;
+}
+
+.me {
+    background: #2DB7CE;
+    color: black;
+    position: relative;
+    width: 342.5px;
+    border-radius: 5px;
+}
+
 .tree li {
-    float: left; text-align: center;
+    float: left;
     list-style-type: none;
     position: relative;
     padding: 20px 5px 0 5px;
@@ -70,11 +89,13 @@ right connector from last child*/
     border: 1px solid #000000;
     padding: 5px 10px;
     text-decoration: none;
-    color: #666;
+    color: black;
     font-family: arial, verdana, tahoma;
-    font-size: 18px;
+    font-size: 15px;
     display: inline-block;
 
+    min-height: 125px;
+    width: 320px;
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -86,9 +107,9 @@ right connector from last child*/
 
 /*Time for some hover effects*/
 /*We will apply the hover effect the the lineage of the element also*/
-.tree li a:hover, .tree li a:hover+ul li a {
+/* .tree li a:hover, .tree li a:hover+ul li a {
     background: #c8e4f8; color: #000; border: 1px solid #94a0b4;
-}
+} */
 /*Connector styles on hover*/
 .tree li a:hover+ul li::after,
 .tree li a:hover+ul li::before,
