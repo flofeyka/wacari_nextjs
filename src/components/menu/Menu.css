@@ -93,6 +93,11 @@
     font-size: 24px;
 }
 
+.rightMenu {
+    height: 500px;
+    position: relative
+}
+
 .menu-item-drawer:hover{
     transition: 0.4s;
     border-bottom: solid #455ef3 1px;

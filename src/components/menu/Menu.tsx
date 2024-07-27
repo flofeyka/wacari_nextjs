@@ -282,6 +282,7 @@ const Menu = () => {
                             title={<span style={{ fontSize: "20px", color: "gray" }}>Меню</span>}
                             onClose={onCloseDrawer}
                             open={openDrawer}
+                            className="rightMenu"
                         >
                             <p>
                                 <Link className="menu-item-drawer" href="/myBiography" onClick={onCloseDrawer}>
