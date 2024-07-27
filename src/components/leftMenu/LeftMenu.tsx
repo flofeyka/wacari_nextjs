@@ -29,7 +29,7 @@ const LeftMenu: React.FC = () => {
             children: [
                 {
                     key: 'g1',
-                    label: <div onClick={(key)=>{
+                    label: <div className='menu-item' onClick={(key)=>{
                         console.log("Россия", key)
                         key.stopPropagation()
                         key.preventDefault()
@@ -40,7 +40,7 @@ const LeftMenu: React.FC = () => {
                     children: [
                         {
                             key: '1',
-                            label: <div onClick={(key)=>{
+                            label: <div   onClick={(key)=>{
                                 console.log("Москва", key)
                                 key.stopPropagation()
                                 key.preventDefault()
@@ -50,7 +50,7 @@ const LeftMenu: React.FC = () => {
                             </div> },
                         {
                             key: '2',
-                            label: <div onClick={(key)=>{
+                            label: <div className='menu-item' onClick={(key)=>{
                                 console.log("Питер", key)
                                 key.stopPropagation()
                                 key.preventDefault()
@@ -91,18 +91,18 @@ const LeftMenu: React.FC = () => {
             children: [
                 {
                     key: '5',
-                    label: <div onClick={(key) => {
+                    label: <div className='menu-item' onClick={(key) => {
                         console.log("Республика Конго", key)
                         key.stopPropagation()
                         key.preventDefault()
                         router.push('/catalog/evrasia')
-                    }}>
+                    }}> 
                         Республика Конго
                     </div>,
                 },
                 {
                     key: '6',
-                    label: <div onClick={(key) => {
+                    label: <div className='menu-item' onClick={(key) => {
                         console.log("Лесото", key)
                         key.stopPropagation()
                         key.preventDefault()
@@ -115,7 +115,7 @@ const LeftMenu: React.FC = () => {
         },
         {
             key: 'sub4',
-            label: <div onClick={(key) => {
+            label: <div className='menu-item' onClick={(key) => {
                 console.log("Северная Америка", key)
                 key.stopPropagation()
                 key.preventDefault()
@@ -126,7 +126,7 @@ const LeftMenu: React.FC = () => {
             children: [
                 {
                     key: '9',
-                    label: <div onClick={(key) => {
+                    label: <div className='menu-item' onClick={(key) => {
                             console.log("Северная Америка", key)
                             key.stopPropagation()
                             key.preventDefault()
@@ -137,7 +137,7 @@ const LeftMenu: React.FC = () => {
                 },
                 {
                     key: '10',
-                    label: <div onClick={(key) => {
+                    label: <div className='menu-item' onClick={(key) => {
                         console.log("Канада", key)
                         key.stopPropagation()
                         key.preventDefault()
@@ -148,7 +148,7 @@ const LeftMenu: React.FC = () => {
                 },
                 {
                     key: '11',
-                    label: <div onClick={(key) => {
+                    label: <div className='menu-item' onClick={(key) => {
                         console.log("Бермудские Острова", key)
                         key.stopPropagation()
                         key.preventDefault()
@@ -161,7 +161,7 @@ const LeftMenu: React.FC = () => {
         },
         {
             key: 'sub5',
-            label: <div onClick={(key) => {
+            label: <div className='menu-item' onClick={(key) => {
                     console.log("Южная Америка", key)
                     key.stopPropagation()
                     key.preventDefault()
@@ -172,7 +172,7 @@ const LeftMenu: React.FC = () => {
             children: [
                 {
                     key: '12',
-                    label: <div onClick={(key) => {
+                    label: <div className='menu-item' onClick={(key) => {
                         console.log("Венесуэла", key)
                         key.stopPropagation()
                         key.preventDefault()
@@ -183,7 +183,7 @@ const LeftMenu: React.FC = () => {
                 },
                 {
                     key: '13',
-                    label: <div onClick={(key) => {
+                    label: <div className='menu-item' onClick={(key) => {
                         console.log("Колумбия", key)
                         key.stopPropagation()
                         key.preventDefault()
@@ -196,7 +196,7 @@ const LeftMenu: React.FC = () => {
         },
         {
             key: 'sub6',
-            label: <div onClick={(key) => {
+            label: <div className='menu-item' onClick={(key) => {
                     console.log("Австралия", key)
                     key.stopPropagation()
                     key.preventDefault()
@@ -207,7 +207,7 @@ const LeftMenu: React.FC = () => {
             children: [
                 {
                     key: '14',
-                    label: <div onClick={(key) => {
+                    label: <div className='menu-item' onClick={(key) => {
                         console.log("Виктория", key)
                         key.stopPropagation()
                         key.preventDefault()
@@ -218,7 +218,7 @@ const LeftMenu: React.FC = () => {
                 },
                 {
                     key: '15',
-                    label: <div onClick={(key) => {
+                    label: <div className='menu-item' onClick={(key) => {
                         console.log("Квинсленд", key)
                         key.stopPropagation()
                         key.preventDefault()
@@ -231,7 +231,7 @@ const LeftMenu: React.FC = () => {
         },
         {
             key: 'sub7',
-            label: <div onClick={(key) => {
+            label: <div className='menu-item' onClick={(key) => {
                 console.log("Антарктида", key)
                 key.stopPropagation()
                 key.preventDefault()

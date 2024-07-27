@@ -106,10 +106,29 @@
 @media screen and ( max-width: 991px ) {
     #menu-component{
         flex-direction: row;
-        justify-content: space-between;
+        width: 100vw;
     }
     #menu-wrapper > .menu-avatar {
-        display: none;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .menu-item {
+        visibility: hidden;
+    }
+
+    .menu-avatar {
+        visibility: hidden;
+    }
+
+    .menuShower {
+        position: absolute;
+        right: 0;
+        top: -35px;
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+        position: relative;
     }
 
 }

@@ -7,6 +7,16 @@
     width: 256px
 }
 
+/* #left-menu-component {
+    div {
+        background-color: aliceblue;
+    }
+} */
+
+.menu-item:active {
+    background-color: aliceblue;
+}
+
 
 @media screen and ( max-width: 900px ) {
     #left-menu-component{

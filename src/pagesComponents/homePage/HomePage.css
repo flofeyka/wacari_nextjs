@@ -1,7 +1,6 @@
 #home-page-component{
     display: flex;
     flex-direction: row;
-    width: 100%;
 }
 
 .text-login{
@@ -30,10 +29,12 @@
 }
 
 #welcome{
-    background: #daf2ff;
+    background-image: url("https://www.shutterstock.com/image-vector/simple-world-map-light-blue-260nw-1697099506.jpg");
+    background-size: 450px;
     padding: 20px 20px;
     margin: 20px;
     display: flex;
+
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
@@ -48,7 +49,8 @@
 }
 
 #welcome-description{
-    color: #7c7c7c;
+    /* color: #7c7c7c; */
+    font-weight:500;
     font-size: 16px;
 }
 
@@ -121,36 +123,6 @@
     justify-content: space-evenly;
     flex-wrap: wrap;
 }
-
-#person-block{
-    background: #f7f7f7;
-    border-radius: 8px;
-    width: 29%;
-    padding: 15px 20px;
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-#person-block:hover{
-    background: #f1f1f1;
-}
-
-#person-img{
-    border: 1px solid #cccbcb;
-    width: 25%;
-}
-
-#person-fio{
-    font-weight: 600;
-    margin-bottom: 15px;
-}
-
-#person-info-block{
-    width: 70%;
-}
-
 .person-info-detail{
     color: #0053e5;
 }
@@ -166,6 +138,10 @@
     font-size: 14px;
 }
 
+#articles {
+    margin-right: 10px;
+}
+
 #pagination-home-page{
     display: flex;
     justify-content: center;
@@ -175,5 +151,39 @@
 @media screen and ( max-width: 900px ) {
     #component-left-menu{
         display: none;
+    }
+
+    #welcome {
+        flex-direction: column;
+        align-items: center;
+        background-size: 500px;
+        background-position: center;
+        font-size: 13px;
+        position: relative;
+        width: 87.5%;
+    }
+
+    #create-biography-button {
+        justify-content: center;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        width: 100%;
+    }
+
+    #welcome-text {
+        font-size: 16px;
+        margin-bottom: 5px;
+    }
+
+    #welcome-description {
+        font-size: 14px;
+    }
+
+    #createButton {
+        width: 100%;
+    }
+
+    #people-wrapper {
+        margin: 0;
     }
 }

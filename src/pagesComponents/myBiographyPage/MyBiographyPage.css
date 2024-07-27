@@ -20,4 +20,9 @@
     #component-left-menu{
         display: none;
     }
+    
+    #my-biography-page-wrapper {
+        margin: 10px;
+    }
+
 }
