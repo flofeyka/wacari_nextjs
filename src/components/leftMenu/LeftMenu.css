@@ -17,7 +17,7 @@
 
 .countryItem {
     margin-left: 15px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 #menu-item {
@@ -50,7 +50,7 @@
 
 @media screen and ( max-width: 900px ) {
     #left-menu-component{
-        width: 100vw;;
+        width: 100vw;
         visibility: visible;
         display: flex;
         z-index: 10000
@@ -59,30 +59,34 @@
     #countryItem {
         margin-left: 15px;
         margin-bottom: 10px;
+        font-size: 15px;
     }
 
     .continentList {
         color: black;
         visibility: visible;
         margin-left: 15px;
+        width: 95vw;
     }
 
     .continentItem {
-        margin-bottom: 15px;
+        margin-bottom: 10px;
         font-size: 25px;
     }
 
     #menu-item{
         margin-bottom: 0;
-        font-size: 23px;
-        white-space: nowrap; /* Запрещаем перенос текста */
+        font-size: 25px;
+        white-space: nowrap;
+        justify-content: space-between;
     }
     #menu-item-active {
         display: flex;
         margin-bottom: 0;
         font-size: 25px;
         color:#2F5A9B;
-        white-space: nowrap; /* Запрещаем перенос текста */
+        white-space: nowrap; 
+        justify-content: space-between;
     }
 
     #logo {
