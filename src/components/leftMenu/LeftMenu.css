@@ -29,14 +29,17 @@
 #menu-item {
     color:black;
     display: flex;
+    justify-content: space-between;
+    cursor: pointer;
 }
 
 #menu-item-active {
     margin-bottom: 10px;
     font-size: 20px;
     color:#2F5A9B;
-    margin-left: 10px;
     display: flex;
+    justify-content: space-between;
+    cursor: pointer;
 }
 
 @media screen and (min-width: 901px) {
