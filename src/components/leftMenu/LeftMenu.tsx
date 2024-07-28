@@ -7,7 +7,7 @@ import "./LeftMenu.css"
 import { useRouter } from "next/navigation";
 import CountriesList from './CountriesList';
 import Link from 'next/link';
-import { motion } from "framer-motion"
+import { AnimatePresence, motion } from "framer-motion"
 
 type MenuItem = Required<MenuProps>['items'][number];
 
@@ -246,10 +246,10 @@ const LeftMenu: React.FC = () => {
         </Link>
         <div className='continentList'>
             {items.map((item: any) => <div className='continentItem' key={item.key}>
-                <motion.div onClick={() => setActiveIndex(activeIndex ? "" : item.key)} id={activeIndex === item.key ? 'menu-item' + "-active" : "menu-item"}>
-                    {item.label} <span style={{ marginLeft: "12px", display: "flex" }}> {activeIndex === item.key ? <span>-</span> : <span>+</span>} </span>
-                </motion.div>
-                <motion.div>{activeIndex == item.key && <CountriesList continent={item} />}</motion.div>
+                <div onClick={() => setActiveIndex(activeIndex === item.key ? "" : item.key)} id={activeIndex === item.key ? 'menu-item' + "-active" : "menu-item"}>
+                    {item.label} <span style={{ marginLeft: "12px", display: "flex", fontSize: "25px" }}> {activeIndex === item.key ? <span>-</span> : <span>+</span>} </span>
+                </div>
+                <div>{activeIndex === item.key && <CountriesList continent={item} />}</div>
             </div>)}
         </div>
     </div>
