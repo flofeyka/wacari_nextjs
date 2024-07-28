@@ -1,5 +1,6 @@
 #search-and-filters{
     margin: 0 20px;
+    background: white;
 }
 
 #search-and-filters-wrap{
@@ -20,10 +21,11 @@
 
 #filters-form{
     flex-direction: column;
-    background: #efefef;
     border-radius: 8px;
     padding: 5px;
     margin-top: 5px;
+    background-color: white;
+    width: 100%;
 }
 
 #filter-inputs{
@@ -45,11 +47,11 @@
     flex-direction: row;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    width: 92.5%;
+    width: 100%;
 }
 
 #person-block{
-    background: #f7f7f7;
+    /* background: #f7f7f7; */
     border-radius: 8px;
     width: 29%;
     padding: 15px 20px;
@@ -100,11 +102,16 @@
 
 @media (max-width: 700px) {
     #filters-form {
-        width: 100vw;
+        width: 100%;
+        display: flex;
     }
 
     #people-wrapper {
         margin: 0;
         margin-top: 10px;
+    }
+
+    #filter-input {
+        width: 100%
     }
 }

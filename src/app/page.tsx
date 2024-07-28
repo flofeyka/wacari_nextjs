@@ -4,10 +4,10 @@ import HomePage from "@/pagesComponents/homePage/HomePage";
 
 const Home = () => {
   return (
-    <main
+    <main className={styles.main}
         // className={styles.main}
     >
-      <div>
+      <div className={styles.homePage}>
           <HomePage/>
       </div>
     </main>
