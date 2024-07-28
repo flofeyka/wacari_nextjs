@@ -16,6 +16,6 @@ export const getBiographyDetail = async (token: string | null | undefined, guid:
 };
 
 export const getMyBiographies = async (token: string, page: number) => {
-    const { data } = await baseAPI.get(`/api/v1/biographies/my?${page}&limit=10`, { headers: { Authorization: "Bearer " + token } });
+    const { data } = await baseAPI.get(`/api/v1/biographies/my?page=${page}&limit=10`, { headers: { Authorization: "Bearer " + token } });
     return data;
 }

@@ -1,0 +1,60 @@
+.profile-component {
+    display: flex;
+    flex-direction: row;
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img {
+        margin: 0 auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        max-width: 100%;
+        height: 200px;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        display: flex;
+        margin: 0 auto;
+        margin-top: 10px;
+
+        .TextField {
+            margin-top: 10px;
+        }
+    }
+}
+
+@media (min-width: 701px) {
+    .TextField {
+        width: 700px;
+    }
+}
+
+@media (max-width: 700px) {
+    .biography_component-left-menu {
+        display: none;
+    }
+
+    form {
+        width: 100vw;
+
+        .TextField {
+            width: 100vw;
+        }
+    }
+}

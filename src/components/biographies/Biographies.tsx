@@ -37,7 +37,7 @@ export default function Biographies({ biographiesData, currentPage, setCurrentPa
 
     return <form onSubmit={formik.handleSubmit} id="filters-form">
         <div id="search-and-filters-wrap">
-            <Input placeholder="Введите ФИО" name="fio" value={formik.values.fio} onChange={formik.handleChange} />
+            <Input placeholder="Введите ФИО" name="fio" style={{width: "100%"}} size="large" value={formik.values.fio} onChange={formik.handleChange} />
             <GroupOutlined
                 style={{
                     marginLeft: "5px",

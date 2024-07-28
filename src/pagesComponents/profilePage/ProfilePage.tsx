@@ -289,7 +289,12 @@ const ProfileDetailPage = ({ profileID }: { profileID: string }) => {
                 </div>
 
                 <div id="contacts">
-                    
+                    {profileData.socialLinks.site && <a href={profileData.socialLinks.site}>Веб-сайт</a>}
+                    {profileData.socialLinks.ok && <a href={profileData.socialLinks.ok}><img src="/icons/ok.svg"/> Одноклассники</a>}
+                    {profileData.socialLinks.vk && <a href={profileData.socialLinks.vk}><img src="/icons/vk.svg"/> Вконтакте</a>}
+                    {profileData.socialLinks.telegram && <a href={profileData.socialLinks.telegram}><img src="/icons/telegram.svg"/> Telegram</a>}
+                    {profileData.socialLinks.youtube && <a href={profileData.socialLinks.youtube}><img src="/icons/youtube.svg"/>Youtube</a>}
+
                 </div>
 
                 <div id="profile-quote">
