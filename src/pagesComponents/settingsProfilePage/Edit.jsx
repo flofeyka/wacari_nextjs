@@ -1,6 +1,6 @@
 'use client'
 import defaultLogo from "./default-avatar.png";
-import "./edit.scss";
+import "./edit.css";
 
 import NamePage from "@/components/namePage/NamePage";
 import { Button, TextField } from "@mui/material";
@@ -116,9 +116,9 @@ export default function EditProfile({ user, profile }) {
 
     return (
         <div className="profile-component">
-            <div className="biography_component-left-menu">
+            {/* <div className="biography_component-left-menu">
                 <LeftMenu/>
-            </div>
+            </div> */}
             <div style={{width: "100%", padding:"20px"}}>
             <NamePage name={'Настройки'} desc={'Персональная информация'}/>
 
@@ -138,6 +138,7 @@ export default function EditProfile({ user, profile }) {
                         variant="contained"
                         tabIndex={-1}
                         startIcon={<CloudUploadIcon/>}
+                        style={{width: "100%"}}
                     >
                         Фотография
 
@@ -145,7 +146,7 @@ export default function EditProfile({ user, profile }) {
                                              type="file"/>
                     </Button>
 
-                    <TextField
+                    <TextField className="TextField"
                         error={Boolean(errors.name)}
                         type="text"
                         variant="outlined"
@@ -156,7 +157,7 @@ export default function EditProfile({ user, profile }) {
                         value={data.firstName}
                     />
 
-                    <TextField
+                    <TextField className="TextField"
                         error={Boolean(errors.surname)}
                         type="text"
                         variant="outlined"
@@ -167,7 +168,7 @@ export default function EditProfile({ user, profile }) {
                         value={data.middleName}
                     />
 
-                    <TextField
+                    <TextField className="TextField"
                         error={Boolean(errors.patronymic)}
                         type="text"
                         variant="outlined"
@@ -179,7 +180,7 @@ export default function EditProfile({ user, profile }) {
                     />
 
 
-                    <TextField
+                    <TextField className="TextField"
                         error={Boolean(errors.email)}
                         type="email"
                         variant="outlined"
@@ -190,7 +191,7 @@ export default function EditProfile({ user, profile }) {
                         value={data.address}
                     />
 
-                    <TextField
+                    <TextField className="TextField"
                         error={Boolean(errors.password)}
                         type="password"
                         variant="outlined"
@@ -201,7 +202,7 @@ export default function EditProfile({ user, profile }) {
                         helperText={errors.password}
                     />
 
-                    <TextField
+                    <TextField className="TextField"
                         error={Boolean(errors.password_confirmation)}
                         type="password"
                         variant="outlined"
@@ -211,8 +212,8 @@ export default function EditProfile({ user, profile }) {
                         helperText={errors.password_confirmation}
                     />
 
-                    <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale={'ru'}>
-                        <DatePicker
+                    <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale={'ru'} >
+                        <DatePicker className="TextField"
                             placeholder={'Дата рождения'}
                             // label={'Дата рождения'}
                             onChange={newValue => onChangeForm('birthDate', date(newValue))}
@@ -221,7 +222,7 @@ export default function EditProfile({ user, profile }) {
                         />
                     </LocalizationProvider>
 
-                    <TextField
+                    <TextField className="TextField"
                         error={Boolean(errors.phone)}
                         variant="outlined"
                         placeholder={'Номер телефона'}
@@ -232,7 +233,7 @@ export default function EditProfile({ user, profile }) {
                         value={data.phone}
                     />
 
-                    <TextField
+                    <TextField className="TextField"
                         error={Boolean(errors.mailing_address)}
                         type="text"
                         variant="outlined"
@@ -243,7 +244,7 @@ export default function EditProfile({ user, profile }) {
                         helperText={errors.mailing_address}
                     />
 
-                    <TextField
+                    <TextField className="TextField"
                         error={Boolean(errors.notes)}
                         type="text"
                         variant="outlined"
@@ -254,7 +255,7 @@ export default function EditProfile({ user, profile }) {
                         helperText={errors.notes}
                     />
 
-                    <Button type="submit" variant="contained">
+                    <Button style={{width: "100%", marginTop: "10px"}} type="submit" variant="contained">
                         Сохранить
                     </Button>
                 </form>

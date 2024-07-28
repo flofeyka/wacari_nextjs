@@ -22,7 +22,7 @@ const FavoritesPage = () => {
         }
 
         fetchFavourites();
-    }, [])
+    }, [page])
 
     return (
         <div id="favorites-page">

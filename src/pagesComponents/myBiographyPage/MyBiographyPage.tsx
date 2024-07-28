@@ -25,7 +25,7 @@ const MyBiographyPage = () => {
         }
 
         fetchBiographies();
-    }, [])
+    }, [page])
 
     return (
         <div id="my-biography-page">
