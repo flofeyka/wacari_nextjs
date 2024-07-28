@@ -307,7 +307,12 @@
 }
 
 @media screen and ( max-width: 900px ) {
+  .biography_component-left-menu {
+    display: none
+  }
+
   .biography {
+    width: 100vw;
     flex-direction: column;
 
     &_content_wrapper{

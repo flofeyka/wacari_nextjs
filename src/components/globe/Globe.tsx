@@ -31,7 +31,7 @@ const GlobeComponent = () => {
     }, [globeEl]);
 
     useEffect(() => {
-        setWidth(window.innerWidth > 1400 ? window.innerWidth - 325 : window.innerWidth - 50)
+        setWidth(window.innerWidth > 1400 ? window.innerWidth - 325 : window.innerWidth - 40)
     }, [width]);
 
 

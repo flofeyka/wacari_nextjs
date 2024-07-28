@@ -1,8 +1,7 @@
 #menu-component{
     display: flex;
-    box-shadow: 0 1px 10px #d9d9d9;
+    right: 0;
     padding: 0 15px;
-    top: 0;
     background: #ffffff;
     position: sticky;
     z-index: 300;
@@ -32,12 +31,10 @@
 #menu-wrapper {
     display: flex;
     justify-content: flex-end;
-    width: 100%;
 }
 
 #menu-auth{
     display: flex;
-    width: 100%;
     align-items: center;
     justify-content: flex-end;
 }
@@ -63,7 +60,6 @@
 .menu-item{
     cursor: pointer;
     padding: 0 10px;
-    border-bottom: solid #ffffff;
     color: #000000;
     text-decoration: none;
 }
@@ -71,7 +67,6 @@
 .menu-item:hover{
     color: black;
     transition: 0.4s;
-    border-bottom: solid #61bdf1;
 }
 
 #login-button{
@@ -93,6 +88,9 @@
     font-size: 24px;
 }
 
+.header {
+}
+
 .rightMenu {
     height: 500px;
     position: relative
@@ -101,6 +99,13 @@
 .menu-item-drawer:hover{
     transition: 0.4s;
     border-bottom: solid #455ef3 1px;
+}
+
+@media screen and (min-width: 992px) {
+    .header {
+        visibility: none;
+        display: none;
+    }
 }
 
 @media screen and ( max-width: 991px ) {
@@ -121,14 +126,16 @@
         visibility: hidden;
     }
 
-    .menuShower {
-        position: absolute;
-        right: 0;
-        top: -35px;
+    .header {
         display: flex;
-        justify-content: flex-end;
-        width: 100%;
-        position: relative;
+        justify-content: space-between;
+        width: 100vw;
+        top: 0;
+        position: absolute;     
     }
 
+    .header-desktop {
+        visibility: none;
+        display: none;
+    }
 }

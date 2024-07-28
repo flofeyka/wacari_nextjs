@@ -1,17 +1,25 @@
-#home-page-component{
+#home-page-component {
     display: flex;
     flex-direction: row;
 }
 
-.text-login{
+.text-login {
     font-weight: 600;
 }
 
-.input-login{
+.input-login {
     margin-bottom: 20px;
 }
 
-#registration-button{
+.Menu {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#registration-button {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -20,27 +28,27 @@
     cursor: pointer;
 }
 
-#registration-button:hover{
+#registration-button:hover {
     color: #467aff;
 }
 
-#home-page-wrapper{
+#home-page-wrapper {
     width: 100%;
 }
 
-#welcome{
+#welcome {
     background-image: url("https://www.shutterstock.com/image-vector/simple-world-map-light-blue-260nw-1697099506.jpg");
     background-size: 450px;
     padding: 20px 20px;
     margin: 20px;
     display: flex;
 
-    flex-direction: row;
+    flex-direction: row; 
     justify-content: space-between;
     align-items: center;
 }
 
-#welcome-text{
+#welcome-text {
     display: flex;
     flex-direction: column;
     font-size: 20px;
@@ -48,62 +56,64 @@
     line-height: 2;
 }
 
-#welcome-description{
+#welcome-description {
     /* color: #7c7c7c; */
-    font-weight:500;
+    font-weight: 500;
     font-size: 16px;
 }
 
-#create-biography{
+#create-biography {
     display: flex;
     flex-direction: column;
     line-height: 2;
 }
 
-#create-biography-button{
+#create-biography-button {
     display: flex;
     justify-content: flex-end;
 }
 
-#home-page-globe-component{
-    margin: 20px;
+#home-page-globe-component {
     display: flex;
     justify-content: center;
     cursor: grab;
 }
 
-#home-page-globe-component:active{
+#home-page-globe-component:active {
     cursor: grabbing;
 }
 
-#search-and-filters{
-    margin: 0 20px;
+#search-and-filters {
+    margin-left: 25px;
+    /* margin: 0 20px; */
 }
 
-#search-and-filters-wrap{
+#search-and-filters-wrap {
+    margin-left: 25px;
     display: flex;
     flex-direction: row;
 }
 
-#filter-text{
+#filter-text {
     margin-top: 5px;
     display: flex;
     justify-content: flex-end;
     font-size: 14px;
     color: #67a5fd;
 }
-#filter-text > span{
+
+#filter-text>span {
     cursor: pointer;
 }
 
-#filters-form{
+#filters-form {
     background: #efefef;
     border-radius: 8px;
     padding: 10px 15px;
     margin-top: 5px;
 }
 
-#filter-inputs{
+#filter-inputs {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -111,23 +121,24 @@
     flex-wrap: wrap;
 }
 
-.filter-input{
+.filter-input {
     width: 20%;
     margin-right: 5px;
 }
 
-#people-wrapper{
+#people-wrapper {
     margin: 20px;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     flex-wrap: wrap;
 }
-.person-info-detail{
+
+.person-info-detail {
     color: #0053e5;
 }
 
-.person-link-button{
+.person-link-button {
     background: #1677ff;
     padding: 7px 14px;
     border-radius: 8px;
@@ -142,15 +153,48 @@
     margin-right: 10px;
 }
 
-#pagination-home-page{
+#pagination-home-page {
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
 }
 
-@media screen and ( max-width: 900px ) {
-    #component-left-menu{
+.Biographies {
+    margin-left: 5px;
+    width: 95%;
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (min-width:901px) {
+    #component-left-menu-mobile {
+        visibility: hidden;
         display: none;
+    }
+
+    #component-left-menu {
+        background: #efefef;
+        padding: 10px;
+    }
+
+}
+
+@media screen and (max-width: 900px) {
+
+    #home-page-component {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    #component-left-menu {
+        display: none;
+    }
+
+    .component-left-menu-mobile {
+        visibility: visible;
+        color: black;
     }
 
     #welcome {
@@ -160,7 +204,7 @@
         background-position: center;
         font-size: 13px;
         position: relative;
-        width: 87.5%;
+        width: 85%;
     }
 
     #create-biography-button {
@@ -185,5 +229,16 @@
 
     #people-wrapper {
         margin: 0;
+    }
+
+    #home-page-globe-component {
+        margin-left: 25px;
+
+    }
+
+    .Biographies {
+        width: 100%;
+        display: flex;
+        justify-content: center;
     }
 }

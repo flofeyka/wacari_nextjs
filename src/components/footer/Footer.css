@@ -11,6 +11,7 @@
 #footer-logo{
     cursor: pointer;
     height: 20vh;
+    width: 20vw;
 }
 
 #footer-component > img {
@@ -36,7 +37,7 @@
         justify-content: start;
     }
     #footer-logo {
-        visibility: hidden;
+        display: none;
     }
 
     #footer-wrapper {

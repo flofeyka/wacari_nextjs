@@ -1,26 +1,89 @@
-#left-menu-component{
-    background: #f7f7f7;
-    height: 100%;
+#leftMenuContainer{
     /*height: 80vh;*/
     /*overflow-y: scroll;*/
-    min-height: 80vh;
-    width: 256px
+    width: 215px;
+    height: 98.25%;
+    border-right: 1px;
+    padding: 15px 15px 15px;
 }
 
-/* #left-menu-component {
-    div {
-        background-color: aliceblue;
+.continentItem {
+    margin-bottom: 20px;
+}
+
+.continentItem:active {
+    color: #2F5A9B;
+}
+
+.countryItem {
+    margin-left: 15px;
+    margin-bottom: 10px;
+}
+
+#menu-item {
+    margin-bottom: 10px;
+    font-size: 20px;
+    display: flex;
+}
+
+#menu-item {
+    color:black;
+    display: flex;
+}
+
+#menu-item-active {
+    margin-bottom: 10px;
+    font-size: 20px;
+    color:#2F5A9B;
+    margin-left: 10px;
+    display: flex;
+}
+
+@media screen and (min-width: 901px) {
+    #left-menu-component {
+        background: #efefef;
     }
-} */
-
-.menu-item:active {
-    background-color: aliceblue;
 }
-
 
 @media screen and ( max-width: 900px ) {
     #left-menu-component{
-        width: 100%;
-        min-height: auto;
+        width: 100vw;;
+        visibility: visible;
+        display: flex;
+        z-index: 10000
+    }
+
+    #countryItem {
+        margin-left: 15px;
+        margin-bottom: 10px;
+    }
+
+    .continentList {
+        color: black;
+        visibility: visible;
+        margin-left: 15px;
+    }
+
+    .continentItem {
+        margin-bottom: 15px;
+        font-size: 25px;
+    }
+
+    #menu-item{
+        margin-bottom: 0;
+        font-size: 23px;
+        white-space: nowrap; /* Запрещаем перенос текста */
+    }
+    #menu-item-active {
+        display: flex;
+        margin-bottom: 0;
+        font-size: 25px;
+        color:#2F5A9B;
+        white-space: nowrap; /* Запрещаем перенос текста */
+    }
+
+    #logo {
+        visibility: hidden;
+        display: none;
     }
 }

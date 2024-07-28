@@ -11,7 +11,7 @@ import { useFormik } from "formik"
 
 export default function Biographies({ biographiesData, currentPage, setCurrentPage }:
     { biographiesData: { data: IBiographyList[], totalItemCount: number, limit: number }, currentPage: number, setCurrentPage: (currentPage: number) => void }) {
-    
+
     const [continent, setContinent] = useState<string>("");
     const [country, setCountry] = useState<string>("");
     const formik = useFormik({
@@ -37,7 +37,7 @@ export default function Biographies({ biographiesData, currentPage, setCurrentPa
 
     return <form onSubmit={formik.handleSubmit} id="filters-form">
         <div id="search-and-filters-wrap">
-            <Input placeholder="Введите ФИО" name="fio" style={{width: "100%"}} size="large" value={formik.values.fio} onChange={formik.handleChange} />
+            <Input placeholder="Введите ФИО" name="fio" style={{ width: "100%" }} size="large" value={formik.values.fio} onChange={formik.handleChange} />
             <GroupOutlined
                 style={{
                     marginLeft: "5px",
@@ -93,9 +93,11 @@ export default function Biographies({ biographiesData, currentPage, setCurrentPa
                 Поиск
             </Button>
         </div>
-        {mtsBlock ?
-            <MtcPeopleList peopleList={biographiesData.data} totalCount={biographiesData.totalItemCount} pageSize={biographiesData.limit} setCurrentPage={setCurrentPage} currentPage={currentPage} /> :
-            <PeopleList peopleList={biographiesData.data} totalCount={biographiesData.totalItemCount} pageSize={biographiesData.limit} setCurrentPage={setCurrentPage} currentPage={currentPage} />
-        }
+        <div style={{display: "flex", justifyContent: "center", width: "100%"}}>
+            {mtsBlock ?
+                <MtcPeopleList peopleList={biographiesData.data} totalCount={biographiesData.totalItemCount} pageSize={biographiesData.limit} setCurrentPage={setCurrentPage} currentPage={currentPage} /> :
+                <PeopleList peopleList={biographiesData.data} totalCount={biographiesData.totalItemCount} pageSize={biographiesData.limit} setCurrentPage={setCurrentPage} currentPage={currentPage} />
+            }
+        </div>
     </form>
 }

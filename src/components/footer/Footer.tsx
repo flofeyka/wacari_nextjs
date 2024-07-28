@@ -2,17 +2,19 @@
 import "./Footer.css"
 import CONSTANTS from "@/constants.json"
 import Link from "next/link";
-import {useRouter} from "next/navigation";
+import { useRouter } from "next/navigation";
 import { FC } from "react";
 
 
-const Footer:FC = () => {
+const Footer: FC = () => {
     const router = useRouter()
 
 
-    return(
+    return (
         <div id="footer-component">
-            <img id="footer-logo" src="/logo2.png" alt="" onClick={() => router.push('/')}/>
+            <Link href="/" id='footer-logo'>
+                <img id="menu-logo" src="/logo2.png" alt="" height={150} />
+            </Link>
             <div id="footer-wrapper">
                 <Link className="footer-menu-item" href="/about" >
                     О нас

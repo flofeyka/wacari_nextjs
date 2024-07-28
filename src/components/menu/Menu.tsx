@@ -247,9 +247,6 @@ const Menu = () => {
                         </>
                 }
             </Modal>
-            <Link href="/">
-                <img id="menu-logo" src="/logo.png" alt="" height={100} />
-            </Link>
             <div id="menu-wrapper">
                 {!accessToken ?
                     <div id="menu-auth">
@@ -277,7 +274,10 @@ const Menu = () => {
                             Избранное
                         </Link>
                         <Avatar size={64} icon={<UserOutlined />} style={{ marginRight: "50px" }} className="menu-avatar" />
-                        <MenuOutlined className="menuShower" onClick={showDrawer} />
+                        <span className="header-desktop">
+                            <MenuOutlined height={50} className="menuShower" onClick={showDrawer} />
+                        </span>
+                        {/* <img src="/logo.png" style={{display: "flex", justifySelf: "center"}} alt="" width={100} height={100}/> */}
                         <Drawer
                             title={<span style={{ fontSize: "20px", color: "gray" }}>Меню</span>}
                             onClose={onCloseDrawer}
@@ -304,6 +304,7 @@ const Menu = () => {
                                     Настройки
                                 </Link>
                             </p>
+
                             <p
                                 className="menu-item-drawer"
                                 onClick={() => {
@@ -318,6 +319,11 @@ const Menu = () => {
                                 Выйти
                             </p>
                         </Drawer>
+                        <div className="header">
+                            <img style={{ display: "flex", justifySelf: "start" }} src="/Лого.svg" />
+                            <img style={{ display: "flex", justifyContent: "center" }} src="/Название.svg" />
+                            <MenuOutlined height={50} className="menuShower" onClick={showDrawer} />
+                        </div>
                     </div>
                 }
             </div>
