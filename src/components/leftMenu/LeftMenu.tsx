@@ -249,7 +249,7 @@ const LeftMenu: React.FC = () => {
                 <div onClick={() => setActiveIndex(activeIndex === item.key ? "" : item.key)} id={activeIndex === item.key ? 'menu-item' + "-active" : "menu-item"}>
                     {item.label} <span style={{ marginLeft: "12px", display: "flex", fontSize: "25px" }}> {activeIndex === item.key ? <span>-</span> : <span>+</span>} </span>
                 </div>
-                <div>{activeIndex === item.key && <CountriesList continent={item} />}</div>
+                <AnimatePresence>{activeIndex === item.key && <CountriesList continent={item} />}</AnimatePresence>
             </div>)}
         </div>
     </div>
