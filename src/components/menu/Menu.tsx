@@ -278,7 +278,43 @@ const Menu = () => {
                             <MenuOutlined height={50} className="menuShower" onClick={showDrawer} />
                         </span>
                         {/* <img src="/logo.png" style={{display: "flex", justifySelf: "center"}} alt="" width={100} height={100}/> */}
-                        <Drawer
+
+                        {openDrawer && <div>
+                            <div className="menuBg" onClick={onCloseDrawer}></div>
+                            <div className="menu-wrapper">
+                                <div className="right-menu-avatar">
+                                    <Avatar size={150} icon={<UserOutlined />} className="r-menu-avatar" />
+                                </div>
+                                <div className="buttons-wrapper">
+                                    <p>
+                                        <Link className="menu-item-drawer" href="/myBiography" onClick={onCloseDrawer}>
+                                            Моя биография
+                                        </Link>
+                                    </p>
+                                    <p>
+                                        <Link className="menu-item-drawer" href="/rules" onClick={onCloseDrawer}>
+                                            Правило и руководство
+                                        </Link>
+                                    </p>
+                                    <p>
+                                        <Link className="menu-item-drawer" href="/help" onClick={onCloseDrawer}>
+                                            Помогите нам стать лучше
+                                        </Link>
+                                    </p>
+                                    <p>
+                                        <Link className="menu-item-drawer" href="/setting" onClick={onCloseDrawer}>
+                                            Настройки
+                                        </Link>
+                                    </p>
+                                    <p>
+                                        <div onClick={onCloseDrawer} className="menu-item-drawer">
+                                            Выйти
+                                        </div>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>}
+                        {/* <Drawer
                             title={<span style={{ fontSize: "20px", color: "gray" }}>Меню</span>}
                             onClose={onCloseDrawer}
                             open={openDrawer}
@@ -318,7 +354,7 @@ const Menu = () => {
                             >
                                 Выйти
                             </p>
-                        </Drawer>
+                        </Drawer> */}
                         <div className="header">
                             <img style={{ display: "flex", justifySelf: "start" }} src="/Лого.svg" />
                             <img style={{ display: "flex", justifyContent: "center" }} src="/Название.svg" />

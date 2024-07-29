@@ -2,10 +2,11 @@
 import "./SettingPage.css"
 import LeftMenu from "@/components/leftMenu/LeftMenu";
 import type { FormProps } from 'antd';
-import { Button, Form, Input, DatePicker, Image, Upload  } from 'antd';
+import { Button, Form, Input, DatePicker, Image, Upload } from 'antd';
 import React, { useEffect, useState } from 'react';
 import { PlusOutlined } from '@ant-design/icons';
 import type { GetProp, UploadFile, UploadProps } from 'antd';
+import Menu from "@/components/menu/Menu";
 
 
 type FieldType = {
@@ -52,15 +53,17 @@ const SettingPage = () => {
 
     return (
         <div id="setting-page">
+
             <div id="component-left-menu">
-                <LeftMenu/>
+                <LeftMenu />
             </div>
+            
             <div id="setting-page-wrapper">
                 <h3>Персональные настройки</h3>
                 <div id="setting-page-form">
                     <Form
                         name="basic"
-                        labelCol={{ span: 4}}
+                        labelCol={{ span: 4 }}
                         wrapperCol={{ span: 16 }}
                         // style={{ maxWidth: 1000 }}
                         initialValues={{ remember: true }}
@@ -73,7 +76,7 @@ const SettingPage = () => {
                             name="name"
                             rules={[{ required: true, message: 'Пожалуйста, введите свое имя' }]}
                         >
-                            <Input placeholder="Введите имя"/>
+                            <Input placeholder="Введите имя" />
                         </Form.Item>
 
                         <Form.Item
@@ -81,7 +84,7 @@ const SettingPage = () => {
                             name="surname"
                             rules={[{ required: true, message: 'Пожалуйста, введите свою фамилию' }]}
                         >
-                            <Input placeholder="Введите фамилию"/>
+                            <Input placeholder="Введите фамилию" />
                         </Form.Item>
 
                         <Form.Item
@@ -89,7 +92,7 @@ const SettingPage = () => {
                             name="patronymic"
                             rules={[{ required: true, message: 'Пожалуйста, введите свое отчество' }]}
                         >
-                            <Input placeholder="Введите отчество"/>
+                            <Input placeholder="Введите отчество" />
                         </Form.Item>
 
                         <Form.Item
@@ -97,7 +100,7 @@ const SettingPage = () => {
                             name="email"
                             rules={[{ required: true, message: 'Пожалуйста, введите свою почту' }]}
                         >
-                            <Input placeholder="Введите почту"/>
+                            <Input placeholder="Введите почту" />
                         </Form.Item>
 
                         <Form.Item
@@ -105,7 +108,7 @@ const SettingPage = () => {
                             label="Дата рождения"
                             rules={[{ required: true, message: 'Пожалуйста, введите дату' }]}
                         >
-                            <DatePicker placeholder="Выберите дату" format={['DD-MM-YYYY', 'DD-MM-YY']}/>
+                            <DatePicker placeholder="Выберите дату" format={['DD-MM-YYYY', 'DD-MM-YY']} />
                         </Form.Item>
 
                         <Form.Item
@@ -121,15 +124,15 @@ const SettingPage = () => {
                                 onChange={handleChangeUpload}
                             >
                                 {fileList.length >= 8 ? null :
-                                    <button style={{border: 0, background: 'none'}} type="button">
-                                        <PlusOutlined/>
-                                        <div style={{fontSize:"12px"}}>Загрузить</div>
+                                    <button style={{ border: 0, background: 'none' }} type="button">
+                                        <PlusOutlined />
+                                        <div style={{ fontSize: "12px" }}>Загрузить</div>
                                     </button>
                                 }
                             </Upload>
                             {previewImage && (
                                 <Image
-                                    wrapperStyle={{display: 'none' }}
+                                    wrapperStyle={{ display: 'none' }}
                                     preview={{
                                         visible: previewOpen,
                                         onVisibleChange: (visible) => setPreviewOpen(visible),
@@ -145,7 +148,7 @@ const SettingPage = () => {
                             name="phone"
                             rules={[{ required: true, message: 'Пожалуйста, введите номер телефона' }]}
                         >
-                            <Input placeholder="Введите номер телефона"/>
+                            <Input placeholder="Введите номер телефона" />
                         </Form.Item>
 
                         <Form.Item
@@ -153,14 +156,14 @@ const SettingPage = () => {
                             name="mailing-address"
                             rules={[{ required: true, message: 'Пожалуйста, введите почтовый адрес' }]}
                         >
-                            <Input placeholder="Введите номер телефона"/>
+                            <Input placeholder="Введите номер телефона" />
                         </Form.Item>
 
                         <Form.Item
                             label="Дополнительные заметки"
                             name="additional-notes"
                         >
-                            <Input placeholder="Введите дополнительные заметки"/>
+                            <Input placeholder="Введите дополнительные заметки" />
                         </Form.Item>
 
                         <Form.Item>

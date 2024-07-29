@@ -15,8 +15,19 @@
     border-radius: 10px;
 }
 
-@media screen and ( max-width: 900px ) {
-    #component-left-menu{
-        display: none;
+#menu-wrapper {
+    position: absolute;
+    right: 0;
+}
+
+@media screen and (min-width: 901) {
+    #component-left-menu {
+        visibility: visible;
     }
+}
+
+@media screen and ( max-width: 900px ) {
+    /* #component-left-menu{
+        display: none;
+    } */
 }

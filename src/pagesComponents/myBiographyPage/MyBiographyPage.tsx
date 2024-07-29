@@ -8,6 +8,7 @@ import "../../components/peopleList/PeopleList.css"
 import { useRouter } from "next/navigation";
 import { getMyBiographies } from "@/api/biography/biography";
 import Biographies from "@/components/biographies/Biographies";
+import Menu from "@/components/menu/Menu";
 
 const MyBiographyPage = () => {
     const [biographiesData, setBiographiesData] = useState({
@@ -33,12 +34,15 @@ const MyBiographyPage = () => {
                 <LeftMenu />
             </div>
             <div id="my-biography-page-wrapper">
+                <div style={{position: 'absolute', right: "0"}}>
+                    <Menu />
+                </div>
                 <h3>Мои биографии</h3>
                 <Divider />
                 {biographiesData.data.length === 0 ?
                     <div id="create-biography">
                         У вас еще нет биографии. <Link href="/biography/create"> Создать</Link>?
-                    </div> : <Biographies currentPage={page} setCurrentPage={setPage} biographiesData={biographiesData}/>
+                    </div> : <Biographies currentPage={page} setCurrentPage={setPage} biographiesData={biographiesData} />
                 }
             </div>
         </div>
