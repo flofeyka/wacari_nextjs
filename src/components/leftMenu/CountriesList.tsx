@@ -7,8 +7,7 @@ export default function CountriesList({ continent }: { continent: any }) {
     const [activeCountryIndex, setActiveCountryIndex] = useState<string>("");
 
     return <div className='countryItem'>
-        <AnimatePresence>
-            {continent.children && (continent.children.map((children: any) => <motion.div
+            {continent.children.map((children: any) => <motion.div
                 initial={{ opacity: 0, height: 0 }} exit={{ opacity: 0, height: 0 }} // Начальное состояние
                 animate={{ opacity: 1, height: 'auto' }}
                 className="country-item" key={children.key}>
@@ -29,7 +28,6 @@ export default function CountriesList({ continent }: { continent: any }) {
 
                 </div>
             </motion.div>
-            ))}
-        </AnimatePresence>
+            )}
     </div>
 }
