@@ -2,23 +2,27 @@
 import LeftMenu from "@/components/leftMenu/LeftMenu";
 import "./ProfilePage.css"
 import { Image } from 'antd';
-import PeopleList from "@/components/peopleList/PeopleList";
 import FamilyTreeComponent from "@/components/familyTree/FamilyTree";
-import { useEffect, useState } from "react";
-import { GroupOutlined } from "@ant-design/icons";
-import MtcPeopleList from "@/components/peopleList/MtcPeopleList";
+import React, { useEffect, useState } from "react";
 import { getBiographyDetail } from "@/api/biography/biography";
-import { IBiographyDetail } from "@/modals/BiographyDetail";
 import formatDate from "@/utils/formatDate";
-import Biographies from "@/components/biographies/Biographies";
 
-
-const ProfileDetailPage = ({ profileID }: { profileID: string }) => {
-    const [mtsBlock, setMtsBlock] = useState<boolean>(false)
-    const [profileData, setProfileData] = useState({
-        id: 0,
-        guid: '',
-        status: {title: "", value: ""},
+const initialProfileState = {
+    id: 0,
+    guid: '',
+    status: { title: "", value: "" },
+    fullName: {
+        firstName: '',
+        lastName: '',
+        middleName: ''
+    },
+    birthDate: '',
+    birthPlace: {
+        continent: { id: 0, guid: '', title: '' },
+        country: { guid: '', id: 0, title: '' },
+        city: { id: 0, guid: '', title: '' }
+    },
+    father: {
         fullName: {
             firstName: '',
             lastName: '',
@@ -26,11 +30,35 @@ const ProfileDetailPage = ({ profileID }: { profileID: string }) => {
         },
         birthDate: '',
         birthPlace: {
-            continent: { id: 0, guid: '', title: '' },
-            country: { guid: '', id: 0, title: '' },
-            city: { id: 0, guid: '', title: '' }
-        },
-        father: {
+            continent: { id: '', guid: '', title: '' },
+            country: { guid: '', id: '', title: '' },
+            city: { id: '', guid: '', title: '' }
+        }
+    },
+    citizenships: [
+        {
+            id: 0,
+            guid: '',
+            countryTitle: "",
+            countryId: 0,
+            countryGuid: "",
+        }
+    ],
+    residences: [
+        {
+            id: 0,
+            guid: '',
+            countryTitle: "",
+            countryId: 0,
+            countryGuid: "",
+            dateFrom: 0,
+            dateTo: 0,
+        }
+    ],
+    growth: 0,
+    weight: 0,
+    spouses: [
+        {
             fullName: {
                 firstName: '',
                 lastName: '',
@@ -38,66 +66,16 @@ const ProfileDetailPage = ({ profileID }: { profileID: string }) => {
             },
             birthDate: '',
             birthPlace: {
-                continent: { id: '', guid: '', title: '' },
-                country: { guid: '', id: '', title: '' },
-                city: { id: '', guid: '', title: '' }
-            }
-        },
-        citizenships: [
-            {
-                id: 0,
-                guid: '',
-                countryTitle: "",
-                countryId: 0,
-                countryGuid: ""
-            }
-        ],
-        residences: [
-            {
-                id: 0,
-                guid: '',
-                countryTitle: "",
-                countryId: 0,
-                countryGuid: "",
-                dateFrom: 0,
-                dateTo: 0,
-            }
-        ],
-        growth: 0,
-        weight: 0,
-        spouses: [
-            {
-                fullName: {
-                    firstName: '',
-                    lastName: '',
-                    middleName: ''
-                },
-                birthDate: '',
-                birthPlace: {
-                    continent: { id: 0, guid: '', title: '' },
-                    country: { guid: '', id: 0, title: '' },
-                    city: { id: 0, guid: '', title: '' }
-                },
-                dateFrom: 0,
-                dateTo: 0
-            }
-        ],
-        childrens: [
-            {
-                fullName: {
-                    firstName: '',
-                    lastName: '',
-                    middleName: ''
-                },
-                birthDate: '',
-                birthPlace: {
-                    continent: { id: 0, guid: '', title: '' },
-                    country: { guid: '', id: 0, title: '' },
-                    city: { id: 0, guid: '', title: '' }
-                },
-            }
-        ],
-        mother: {
+                continent: { id: 0, guid: '', title: '' },
+                country: { guid: '', id: 0, title: '' },
+                city: { id: 0, guid: '', title: '' }
+            },
+            dateFrom: 0,
+            dateTo: 0
+        }
+    ],
+    childrens: [
+        {
             fullName: {
                 firstName: '',
                 lastName: '',
@@ -105,216 +83,318 @@ const ProfileDetailPage = ({ profileID }: { profileID: string }) => {
             },
             birthDate: '',
             birthPlace: {
-                continent: { id: '', guid: '', title: '' },
-                country: { guid: null, id: null, title: null },
-                city: { id: '', guid: '', title: '' }
-            }
+                continent: { id: 0, guid: '', title: '' },
+                country: { guid: '', id: 0, title: '' },
+                city: { id: 0, guid: '', title: '' }
+            },
+        }
+    ],
+    mother: {
+        fullName: {
+            firstName: '',
+            lastName: '',
+            middleName: ''
         },
-        religion: {
-            title: '',
-            id: null,
-            guid: null
-        },
-        associateAnimal: '',
-        educations: [
-            {
-                id: 0,
-                guid: '',
-                title: '',
-                dateFrom: null,
-                dateTo: null
-            }
-        ],
-        profession: '',
-        companies: [{
+        birthDate: '',
+        birthPlace: {
+            continent: { id: '', guid: '', title: '' },
+            country: { guid: '', id: '', title: '' },
+            city: { id: '', guid: '', title: '' }
+        }
+    },
+    religion: {
+        title: '',
+        id: null,
+        guid: null
+    },
+    associateAnimal: '',
+    educations: [
+        {
             id: 0,
             guid: '',
             title: '',
-            position: '',
             dateFrom: null,
             dateTo: null
-        }],
-        state: '',
-        prizes: [
-            {
-                id: 0,
-                guid: '',
-                title: '',
-            }
-        ],
-        socialLinks: {
-            site: '',
-            ok: '',
-            vk: '',
-            telegram: '',
-            youtube: ''
-        },
-        nickNames: [],
-        deathDate: '',
-        deathPlace: {
-            continent: { id: 0, guid: '', title: '' },
-            country: { guid: '', id: 0, title: '' },
-            city: { id: 0, guid: '', title: '' }
-        },
-        deathCause: '',
-        // Add any other missing properties here with appropriate default values
-    })
+        }
+    ],
+    profession: '',
+    companies: [{
+        id: 0,
+        guid: '',
+        title: '',
+        position: '',
+        dateFrom: null,
+        dateTo: null
+    }],
+    state: '',
+    prizes: [
+        {
+            id: 0,
+            guid: '',
+            title: '',
+        }
+    ],
+    socialLinks: {
+        site: '',
+        ok: '',
+        vk: '',
+        telegram: '',
+        youtube: ''
+    },
+    nickNames: [],
+    deathDate: '',
+    deathPlace: {
+        continent: { id: 0, guid: '', title: '' },
+        country: { guid: '', id: 0, title: '' },
+        city: { id: 0, guid: '', title: '' }
+    },
+    deathCause: '',
+    // Add any other missing properties here with appropriate default values
+}
+
+const Detail: React.FC<ProfileDetailProps> = ({ label, value }) => (
+    value ? <div className="profile-row"><span className="profile-field">{label}</span><span className="profile-description-detail-info">{value}</span>
+    </div> : null
+);
+
+const ListDetails = <T,>({ label, items, getItemValue }: ProfileListProps<T>) => (
+    items.length > 0 && (
+        <div className="profile-row">
+            <span className="profile-field">{label}</span>{items.map((item, index) => (
+                <span className="profile-description-detail-info" key={index}>
+                    {getItemValue(item)}
+                </span>
+            ))}
+        </div>
+    )
+);
+
+const ProfileSection: React.FC<ProfileSectionProps> = ({ title, children }) => (
+    <>
+        <h1 className="profile-paragraph">{title}</h1>
+        {children}
+    </>
+);
+
+const ProfileDescription: React.FC<ProfileDescriptionProps> = ({ profileData }) => {
+    const formatFullName = (fullName: IFullName) => `${fullName.firstName} ${fullName.lastName} ${fullName.middleName}`;
+    const formatDateValue = (date: string) => date ? formatDate(date, "dd.MM.yyyy") : null;
+
+    return (
+        <div className="profile-description">
+            <h1 className="profile-name">{formatFullName(profileData.fullName)}</h1>
+            <hr />
+            <div className="profile-description-content">
+                <div className="avatar"><Image src="/default-avatar.png" /></div>
+                <section className="profile-section-container">
+                    <ProfileSection title="Основная информация">
+                        <Detail label="Полное имя" value={formatFullName(profileData.fullName)} />
+                        <Detail label="Дата рождения" value={formatDateValue(profileData.birthDate)} />
+                        <Detail label="Место рождения" value={`${profileData?.birthPlace.continent.title} ${profileData.birthPlace.country.title} ${profileData?.birthPlace.city.title}`} />
+                        <ListDetails label="Гражданство" items={profileData.citizenships} getItemValue={(item) => item.countryTitle} />
+                        <ListDetails label="Место жительства" items={profileData?.residences} getItemValue={(item) => item.countryTitle} />
+                        <Detail label="Рост" value={profileData?.growth} />
+                        <Detail label="Вес" value={profileData?.weight} />
+                        <ListDetails label="Супруг/Супруга" items={profileData.spouses} getItemValue={(item) => formatFullName(item.fullName)} />
+                        <ListDetails label="Дети" items={profileData.childrens} getItemValue={(item) => formatFullName(item.fullName)} />
+                        <Detail label="Отец" value={formatFullName(profileData.father.fullName)} />
+                        <Detail label="Мать" value={formatFullName(profileData.mother.fullName)} />
+                        <Detail label="Отношения к религии" value={profileData.religion.title} />
+                        <Detail label="С каким животным ассоциируешься" value={profileData.associateAnimal} />
+                    </ProfileSection>
+
+                    <ProfileSection title="Деятельность">
+                        <ListDetails label="Образование" items={profileData?.educations} getItemValue={(education: IEducation) => education.title} />
+                        <Detail label="Направление" value={profileData?.profession} />
+                        <ListDetails label="Компания" items={profileData?.companies} getItemValue={(company: ICompany) => `${company.title}, ${company.position}`} />
+                        <Detail label="Состояние" value={profileData?.state} />
+                        <ListDetails label="Награды" items={profileData?.prizes} getItemValue={(prize: IPrize) => prize.title} />
+                        <Detail label="Сайт" value={profileData?.socialLinks.site} />
+                        <Detail label="Одноклассники" value={profileData?.socialLinks.ok} />
+                        <Detail label="ВК" value={profileData?.socialLinks.vk} />
+                        <Detail label="Телеграм" value={profileData?.socialLinks.telegram} />
+                        <Detail label="YouTube" value={profileData?.socialLinks.youtube} />
+                    </ProfileSection>
+                </section>
+            </div>
+        </div>
+    );
+};
+
+const SocialLink: React.FC<{ [key: string]: string }> = ({ href, icon, label }) => (
+    <a href={href} className="contacts__link">
+        <img src={icon} alt={label} className="contacts__icon"/>
+        {label}
+    </a>
+);
+
+const ProfileDetailPage: React.FC<{ profileID: string }> = ({ profileID }) => {
+    const [profileData, setProfileData] = useState(initialProfileState);
+
+    const socialLinks = [
+        { href: profileData.socialLinks.site, icon: "/icons/site.svg", label: "Cайт" },
+        { href: profileData.socialLinks.ok, icon: "/icons/ok.svg", label: "Одноклассники" },
+        { href: profileData.socialLinks.vk, icon: "/icons/vk.svg", label: "Вконтакте" },
+        { href: profileData.socialLinks.telegram, icon: "/icons/telegram.svg", label: "Telegram" },
+        { href: profileData.socialLinks.youtube, icon: "/icons/youtube.svg", label: "Youtube" },
+    ].filter(link => link.href);
 
 
     useEffect(() => {
         getBiographyDetail(localStorage.getItem("accessToken"), profileID)
-            .then((response) => {
-                console.log("res", response.data)
-                setProfileData(response.data)
-            })
-            .catch(error => {
-                console.log("error", error)
-            })
-    }, [profileID]);
+            .then((response) => setProfileData(response.data))
+            .catch(error => console.log("error", error))
+    }, []);
 
     return (
-        <div id="profile-detail-component">
-            <div id="component-left-menu">
+        <main className="profile-detail-component">
+            <aside className="component-left-menu">
                 <LeftMenu />
-            </div>
-            <div id="profile-detail-wrapper">
-                <div id="profile-info">
-                    <div id="avatar">
-                        <Image
-                            src="/default-avatar.png"
-                        />
-                    </div>
-                    <div id="profile-description">
-                        <p className="profile-paragraph">Основная информация</p>
-                        <div>Полное имя: <span className="profile-description-detail-info">
-                            {profileData?.fullName.firstName} {profileData?.fullName.lastName} {profileData?.fullName.middleName}
-                        </span>
-                        </div>
-                        <div>Дата рождения: <span className="profile-description-detail-info">
-                            {profileData?.birthDate ? formatDate(profileData?.birthDate, "dd.MM.yyyy") : null}
-                        </span>
-                        </div>
-                        <div>Место рождения: <span className="profile-description-detail-info">
-                            {profileData?.birthPlace.continent.title} {profileData?.birthPlace.country.title} {profileData?.birthPlace.city.title}
-                        </span>
-                        </div>
-                        <div>Гражданство:  
-                            {profileData?.citizenships.map(citizenship => (
-                                <span className="profile-description-detail-info" key={citizenship.id}>
-                                    {citizenship.countryTitle}
-                                </span>
-                            ))}
-                        </div>
-                        <div>Место жительство:  
-                            {profileData?.residences.map(residence => (
-                                <span className="profile-description-detail-info" key={residence.id}>
-                                    {residence.countryTitle}
-                                </span>
-                            ))}
-                        </div>
-                        <div>Рост: <span className="profile-description-detail-info">{profileData?.growth}</span></div>
-                        <div>Вес: <span className="profile-description-detail-info">{profileData?.weight}</span></div>
-                        <div>Супруг/Супруга: 
-                            {profileData?.spouses.map((spouse, index) => (
-                                <span className="profile-description-detail-info" key={index}>
-                                    {spouse.fullName.firstName} {spouse.fullName.lastName} {spouse.fullName.middleName}
-                                </span>
-                            ))}
-                        </div>
-                        <div>Дети: 
-                            {profileData?.childrens.map((children, index) => (
-                                <span className="profile-description-detail-info" key={index}>
-                                    {children?.fullName.firstName} {children?.fullName.lastName} {children?.fullName.middleName}
-                                </span>
-                            ))}
-                        </div>
-                        <div>Отец: <span className="profile-description-detail-info">
-                            {profileData?.father.fullName.firstName} {profileData?.father.fullName.lastName} {profileData?.father.fullName.middleName}
-                        </span>
-                        </div>
-                        <div>Мать: <span className="profile-description-detail-info">
-                            {profileData?.mother.fullName.firstName} {profileData?.mother.fullName.lastName} {profileData?.mother.fullName.middleName}
-                        </span>
-                        </div>
-                        <div>Отношения к религии: <span className="profile-description-detail-info">
-                            {profileData?.religion.title}
-                        </span>
-                        </div>
-                        <div>С каким животным ассоциируешься: <span
-                            className="profile-description-detail-info">{profileData?.associateAnimal}</span>
-                        </div>
+            </aside>
 
-                        <p className="profile-paragraph">Деятельность</p>
-                        <div>Образование: 
-                            {profileData?.educations.map((education) => (
-                                <span className="profile-description-detail-info" key={education.id}>
-                                    {education.title}
-                                </span>
-                            ))}
-                        </div>
-                        <div>Направление: <span className="profile-description-detail-info">
-                            {profileData?.profession}</span>
-                        </div>
-                        <div>Компания: 
-                            {profileData?.companies.map((company) => (
-                                <span className="profile-description-detail-info" key={company.id}>
-                                    {company.title}
-                                </span>
-                            ))}
-                        </div>
-                        <div>Должность: 
-                            {profileData?.companies.map((company, index) => (
-                                <span className="profile-description-detail-info" key={index}>
-                                    {company.position}
-                                </span>
-                            ))}
-                        </div>
-                        <div>Состояние: <span className="profile-description-detail-info">
-                            {profileData?.state}
-                        </span>
-                        </div>
-                        <div>Награды: 
-                            {profileData?.prizes.map((prize) => (
-                                <span className="profile-description-detail-info" key={prize.id}>
-                                    {prize.title}
-                                </span>
-                            ))}
-                        </div>
-                        <div>Сайт: <span className="profile-description-detail-info">{profileData?.socialLinks.site}</span></div>
-                        <div>Одноклассники: <span className="profile-description-detail-info">{profileData?.socialLinks.ok}</span></div>
-                        <div>ВК: <span className="profile-description-detail-info">{profileData?.socialLinks.vk}</span></div>
-                        <div>Телеграм: <span className="profile-description-detail-info">{profileData?.socialLinks.telegram}</span></div>
-                        <div><span>YouTube: </span> <span className="profile-description-detail-info">{profileData?.socialLinks.youtube}</span></div>
-                    </div>
-                </div>
+            <section className="profile-detail-wrapper">
+                <section className="profile-info">
+                    <ProfileDescription profileData={profileData} />
+                </section>
 
-                <div id="contacts">
-                    {profileData.socialLinks.site && <a href={profileData.socialLinks.site}>Веб-сайт</a>}
-                    {profileData.socialLinks.ok && <a href={profileData.socialLinks.ok}><img src="/icons/ok.svg"/> Одноклассники</a>}
-                    {profileData.socialLinks.vk && <a href={profileData.socialLinks.vk}><img src="/icons/vk.svg"/> Вконтакте</a>}
-                    {profileData.socialLinks.telegram && <a href={profileData.socialLinks.telegram}><img src="/icons/telegram.svg"/> Telegram</a>}
-                    {profileData.socialLinks.youtube && <a href={profileData.socialLinks.youtube}><img src="/icons/youtube.svg"/>Youtube</a>}
+                <section className="contacts">
+                    {socialLinks.map(({ href, icon, label }) => (
+                        <SocialLink key={href} href={href} icon={icon} label={label} />
+                    ))}
+                </section>
 
-                </div>
+                <section className="profile-quote profile-section-container">
+                    <p>{profileData.status.title}</p>
+                    <p>{profileData.status.value}</p>
+                </section>
 
-                <div id="profile-quote">
-                    <p>
-                        {profileData.status.title}
-                    </p>
-                    <p>
-                        {profileData.status.value}
-                    </p>
-                </div>
-
-                <div id="profile-family-tree">
-                    <p className="profile-paragraph">Родословное древо</p>
-                    <div id="tree-block">
+                <section className="profile-family-tree profile-section-container">
+                    <h1 className="profile-paragraph">Родословное древо</h1>
+                    <div className="tree-block">
                         <FamilyTreeComponent profileData={profileData} />
                     </div>
-                </div>
-            </div>
-        </div>
+                </section>
+            </section>
+        </main>
     )
 }
 
 export default ProfileDetailPage;
+
+interface IProfileData {
+    id: number;
+    guid: string;
+    status: { title: string; value: string };
+    fullName: IFullName;
+    birthDate: string;
+    birthPlace: {
+        continent: ILocation;
+        country: ILocation;
+        city: ILocation;
+    };
+    father: ISpouseChild;
+    citizenships: TCitizenship[];
+    residences: TResidence[];
+    growth: number;
+    weight: number;
+    spouses: ISpouseChild[];
+    childrens: ISpouseChild[];
+    mother: ISpouseChild;
+    religion: { title: string; id: number | null; guid: string | null };
+    associateAnimal: string;
+    educations: IEducation[];
+    profession: string;
+    companies: ICompany[];
+    state: string;
+    prizes: IPrize[];
+    socialLinks: ISocialLinks;
+    nickNames: string[];
+    deathDate: string;
+    deathPlace: {
+        continent: ILocation;
+        country: ILocation;
+        city: ILocation;
+    };
+    deathCause: string;
+}
+
+interface IEntity {
+    id: number | string | null;
+    guid: string | null | undefined;
+    title: string;
+}
+
+interface IFullName {
+    firstName: string;
+    lastName: string;
+    middleName: string;
+}
+
+interface ILocation extends IEntity { }
+
+type TCitizenship = Omit<IEntity, 'title'> & {
+    countryTitle: string;
+    countryId: number;
+    countryGuid: string;
+}
+
+type TResidence = Omit<IEntity, 'title'> & {
+    countryTitle: string;
+    countryId: number;
+    countryGuid: string;
+    dateFrom: number;
+    dateTo: number;
+}
+
+interface ISpouseChild {
+    fullName: IFullName;
+    birthDate: string;
+    birthPlace: {
+        continent: ILocation;
+        country: ILocation;
+        city: ILocation;
+    };
+    dateFrom?: number;
+    dateTo?: number;
+}
+
+interface IEducation extends IEntity {
+    dateFrom: number | null;
+    dateTo: number | null;
+}
+
+interface ICompany extends IEntity {
+    position: string;
+    dateFrom: number | null;
+    dateTo: number | null;
+}
+
+interface IPrize extends IEntity { }
+
+interface ISocialLinks {
+    site: string;
+    ok: string;
+    vk: string;
+    telegram: string;
+    youtube: string;
+}
+
+interface ProfileDetailProps {
+    label: string;
+    value: string | number | null;
+}
+
+interface ProfileListProps<T> {
+    label: string;
+    items: T[];
+    getItemValue: (item: T) => string;
+}
+
+interface ProfileSectionProps {
+    title: string;
+    children: React.ReactNode;
+}
+
+interface ProfileDescriptionProps {
+    profileData: IProfileData;
+}

@@ -247,7 +247,7 @@ const LeftMenu: React.FC = () => {
         <div className='continentList'>
             {items.map((item: any) => <div className='continentItem' key={item.key}>
                 <div onClick={() => setActiveIndex(activeIndex === item.key ? "" : item.key)} id={activeIndex === item.key ? 'menu-item' + "-active" : "menu-item"}>
-                    {item.label} <span style={{ marginLeft: "12px", display: "flex", fontSize: "25px" }}> {activeIndex === item.key ? <span>-</span> : <span>+</span>} </span>
+                    {item.label} <span style={{ marginLeft: "12px", display: "flex", fontSize: "25px" }}> {activeIndex === item.key ? <span className='menu-icon-hide'>-</span> : <span className='menu-icon-show'>+</span>} </span>
                 </div>
                 <AnimatePresence>{activeIndex === item.key && <CountriesList continent={item} />}</AnimatePresence>
             </div>)}
