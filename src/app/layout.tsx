@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Menu from "@/components/menu/Menu";
 import Footer from "@/components/footer/Footer";
 import { AntdRegistry } from '@ant-design/nextjs-registry';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter'

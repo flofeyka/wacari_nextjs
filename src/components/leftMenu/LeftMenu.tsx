@@ -242,7 +242,7 @@ const LeftMenu: React.FC = () => {
 
     return <div id="leftMenuContainer">
         <Link href="/" id='logo'>
-            <img id="menu-logo" src="/logo.png" alt="" height={175} />
+            <img id="menu-logo" src="/logo.png" alt="" height={258} />
         </Link>
         <div className='continentList'>
             {items.map((item: any) => <div className='continentItem' key={item.key}>

@@ -86,14 +86,16 @@
 .profile-paragraph,
 .profile-name {
     display: flex;
-    font-size: 1.6rem;
-    font-weight: 600;
+    font-size: 1.8rem;
+    font-weight: 500;
     color: #2F5A9B;
+    margin-bottom: 10px;
 }
 
 .profile-paragraph {
     justify-content: center;
-    font-weight: 800;
+    font-weight: 700;
+    margin-bottom: 40px;
 }
 
 .profile-description-detail-info {
