@@ -1,96 +1,93 @@
-#leftMenuContainer{
+#leftMenuContainer {
     /*height: 80vh;*/
     /*overflow-y: scroll;*/
-    width: 215px;
-    height: 98.25%;
+    box-sizing: border-box;
+    width: 270px;
+    height: 100%;
     border-right: 1px;
-    padding: 15px 15px 15px;
+    padding: 15px 0 15px 10px;
+    background: #f7f7f7;
 }
 
 .continentItem {
-    margin-bottom: 20px;
-}
-
-.continentItem:active {
-    color: #2F5A9B;
+    margin-bottom: 52px;
 }
 
 .countryItem {
-    margin-left: 15px;
-    margin-bottom: 5px;
+    box-sizing: border-box;
+    padding: 15px;
+}
+
+.continentList {
+    display: block;
+    color: black;
+    visibility: visible;
+    margin: 20px 17px 0 20px;
+}
+
+#menu-logo {
+    transform: translateX(-30px);
 }
 
 #menu-item {
     margin-bottom: 10px;
-    font-size: 20px;
-    display: flex;
-}
-
-#menu-item {
-    color:black;
+    font-size: 1.4rem;
     display: flex;
     justify-content: space-between;
     cursor: pointer;
 }
 
 #menu-item-active {
-    margin-bottom: 10px;
-    font-size: 20px;
-    color:#2F5A9B;
     display: flex;
+    margin-bottom: 0;
+    font-size: 20px;
+    white-space: nowrap;
     justify-content: space-between;
+}
+
+#countryItem {
+    margin-left: 15px;
+    margin-bottom: 10px;
+    font-size: 0.8rem;
+}
+
+.menu-icon-show,
+.menu-icon-hide {
+    font-size: 1.2rem;
+}
+
+.menu-icon-hide:hover {
     cursor: pointer;
 }
 
-@media screen and (min-width: 901px) {
-    #left-menu-component {
-        background: #efefef;
+@media (max-width: 768px) {
+    #leftMenuContainer {
+        width: 100%;
     }
-}
 
-@media screen and ( max-width: 900px ) {
-    #left-menu-component{
+    #left-menu-component {
         width: 100vw;
         visibility: visible;
         display: flex;
         z-index: 10000
     }
 
-    #countryItem {
-        margin-left: 15px;
-        margin-bottom: 10px;
-        font-size: 15px;
-    }
-
-    .continentList {
-        color: black;
-        visibility: visible;
-        margin-left: 15px;
-        width: 95vw;
-    }
-
     .continentItem {
-        margin-bottom: 10px;
-        font-size: 25px;
-    }
-
-    #menu-item{
-        margin-bottom: 0;
-        font-size: 25px;
-        white-space: nowrap;
-        justify-content: space-between;
-    }
-    #menu-item-active {
-        display: flex;
-        margin-bottom: 0;
-        font-size: 25px;
-        color:#2F5A9B;
-        white-space: nowrap; 
-        justify-content: space-between;
+        font-size: 16px;
+        margin-bottom: 20px;
     }
 
     #logo {
         visibility: hidden;
         display: none;
+    }
+
+    .continentItem {
+        margin-bottom: 20px;
+    }
+
+    .menu-icon-show,
+    .menu-icon-hide {
+        font-size: 0.9rem;
     }
 }

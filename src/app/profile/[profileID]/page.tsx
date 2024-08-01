@@ -4,9 +4,7 @@ const ProfileDetail = ({params}: {params:{profileID: string}}) => {
 
 
     return (
-        <div>
-            <ProfileDetailPage profileID={params.profileID}/>
-        </div>
+        <ProfileDetailPage profileID={params.profileID}/>
     )
 }
 

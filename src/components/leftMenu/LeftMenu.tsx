@@ -242,12 +242,12 @@ const LeftMenu: React.FC = () => {
 
     return <div id="leftMenuContainer">
         <Link href="/" id='logo'>
-            <img id="menu-logo" src="/logo.png" alt="" height={175} />
+            <img id="menu-logo" src="/logo.png" alt="" height={258} />
         </Link>
         <div className='continentList'>
             {items.map((item: any) => <div className='continentItem' key={item.key}>
                 <div onClick={() => setActiveIndex(activeIndex === item.key ? "" : item.key)} id={activeIndex === item.key ? 'menu-item' + "-active" : "menu-item"}>
-                    {item.label} <span style={{ marginLeft: "12px", display: "flex", fontSize: "25px" }}> {activeIndex === item.key ? <span>-</span> : <span>+</span>} </span>
+                    {item.label} <span style={{ marginLeft: "12px", display: "flex", fontSize: "25px" }}> {activeIndex === item.key ? <span className='menu-icon-hide'>-</span> : <span className='menu-icon-show'>+</span>} </span>
                 </div>
                 <AnimatePresence>{activeIndex === item.key && <CountriesList continent={item} />}</AnimatePresence>
             </div>)}
